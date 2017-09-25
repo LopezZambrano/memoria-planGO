@@ -1,0 +1,732 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Plantilla de memoria en LaTeX para la ETSIT - Universidad Rey Juan Carlos
+%%
+%% Por Gregorio Robles <grex arroba gsyc.urjc.es>
+%%     Grupo de Sistemas y Comunicaciones
+%%     Escuela T�cnica Superior de Ingenieros de Telecomunicaci�n
+%%     Universidad Rey Juan Carlos
+%% (muchas ideas tomadas de Internet, colegas del GSyC, antiguos alumnos...
+%%  etc. Muchas gracias a todos)
+%%
+%% La �ltima versi�n de esta plantilla est� siempre disponible en:
+%%     https://github.com/gregoriorobles/plantilla-memoria
+%%
+%% Para obtener PDF, ejecuta en la shell:
+%%   make
+%% (las im�genes deben ir en PNG o JPG)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper, 12pt]{book}
+%\usepackage[T1]{fontenc}
+
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
+\usepackage{times}
+\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel} % Comenta esta l�nea si tu memoria es en ingl�s
+\usepackage{url}
+%\usepackage[dvipdfm]{graphicx}
+\usepackage{graphicx}
+\usepackage{float}  %% H para posicionar figuras
+\usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de �ndice
+\usepackage{latexsym}  %% Logo LaTeX
+
+\title{Memoria del Proyecto}
+\author{Sara L\\'opez Zambrano}
+
+\renewcommand{\baselinestretch}{1.5}  %% Interlineado
+
+\begin{document}
+
+\renewcommand{\refname}{Bibliograf\'ia}  %% Renombrando
+\renewcommand{\appendixname}{Ap\'endice}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PORTADA
+
+\begin{titlepage}
+\begin{center}
+\begin{tabular}[c]{c c}
+%\includegraphics[bb=0 0 194 352, scale=0.25]{logo} &
+\includegraphics[scale=0.25]{img/logo_vect.png} &
+\begin{tabular}[b]{l}
+\Huge
+\textsf{UNIVERSIDAD} \\
+\Huge
+\textsf{REY JUAN CARLOS} \\
+\end{tabular}
+\\
+\end{tabular}
+
+\vspace{3cm}
+
+\Large
+INGENIER\'iA EN SISTEMAS DE TELECOMUNICACI\'ON
+
+\vspace{0.4cm}
+
+\large
+Curso Acad�mico 2017/2018
+
+\vspace{0.8cm}
+
+Trabajo Fin de Grado
+
+\vspace{2.5cm}
+
+\LARGE
+PLANGO
+
+\vspace{4cm}
+
+\large
+Autor : Sara L\'opez Zambrano
+Tutor : Pedro de las Heras
+\end{center}
+\end{titlepage}
+
+\newpage
+\mbox{}
+\thispagestyle{empty} % para que no se numere esta pagina
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Para firmar
+\clearpage
+\pagenumbering{gobble}
+\chapter*{}
+
+\vspace{-4cm}
+\begin{center}
+\LARGE
+\textbf{Trabajo Fin de Grado}
+
+\vspace{1cm}
+\large
+planGO
+
+\vspace{1cm}
+\large
+\textbf{Autor :} Sara L\'opez Zambrano \\
+\textbf{Tutor :} Dr. Pedro de las Heras
+
+\end{center}
+
+\vspace{1cm}
+La defensa del presente Proyecto Fin de Carrera se realiz\'o el d\'ia \qquad$\;\,$ de \qquad\qquad\qquad\qquad \newline de 2017, siendo calificada por el siguiente tribunal:
+
+
+\vspace{0.5cm}
+\textbf{Presidente:}
+
+\vspace{1.2cm}
+\textbf{Secretario:}
+
+\vspace{1.2cm}
+\textbf{Vocal:}
+
+
+\vspace{1.2cm}
+y habiendo obtenido la siguiente calificaci\'on:
+
+\vspace{1cm}
+\textbf{Calificaci\'on:}
+
+
+\vspace{1cm}
+\begin{flushright}
+Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 2017
+\end{flushright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Dedicatoria
+
+\chapter*{}
+\pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
+\begin{flushright}
+\textit{Dedicado a \\
+mi familia / mi abuelo / mi abuela}
+\end{flushright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Agradecimientos
+
+\chapter*{Agradecimientos}
+%\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el �ndice
+\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado 
+
+Aqu� vienen los agradecimientos\ldots Aunque est� bien acordarse de la pareja, no hay que olvidarse de dar las gracias a tu madre, que aunque a veces no lo parezca disfrutar� tanto de tus logros como t�\ldots 
+Adem�s, la pareja quiz�s no sea para siempre, pero tu madre s�.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Resumen
+
+\chapter*{Resumen}
+%\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el �ndice
+\markboth{RESUMEN}{RESUMEN} % encabezado
+
+Aqu� viene un resumen del proyecto. Ha de constar de tres o cuatro p�rrafos, donde se presente de manera clara y concisa de qu� va el proyecto. 
+Han de quedar respondidas las siguientes preguntas:
+
+\begin{itemize}
+  \item �De qu� va este proyecto? �Cu�l es su objetivo principal?
+  \item �C�mo se ha realizado? �Qu� tecnolog�as est�n involucradas?
+  \item �En qu� contexto se ha realizado el proyecto? �Es un proyecto
+dentro de un marco general?
+\end{itemize}
+
+Lo mejor es escribir el resumen al final.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% �NDICES %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Las buenas noticias es que los �ndices se generan autom�ticamente.
+% Lo �nico que tienes que hacer es elegir cu�les quieren que se generen,
+% y comentar/descomentar esa instrucci�n de LaTeX.
+
+%%%% �ndice de contenidos
+\tableofcontents 
+%%%% �ndice de figuras
+\cleardoublepage
+%\addcontentsline{toc}{chapter}{Lista de figuras} % para que aparezca en el indice de contenidos
+\listoffigures % indice de figuras
+%%%% �ndice de tablas
+%\cleardoublepage
+%\addcontentsline{toc}{chapter}{Lista de tablas} % para que aparezca en el indice de contenidos
+%\listoftables % indice de tablas
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INTRODUCCI�N %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\chapter{Introducci\'on}
+\label{sec:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
+\pagenumbering{arabic} % para empezar la numeraci�n de p�gina con n�meros
+
+En poco tiempo se ha producido un gran avance en el mundo de las tecnolog\'ias y en concreto
+en los dispositivos m\'oviles, tanto ha sido as\'i que estamos al alcance de la mayor\'ia de las
+cosas solo disponiendo de un dispositivo m\'ovil con conexi\'on a Internet. Si navegamos en el
+tiempo, desde dispositivos que solo nos ofrec\'ian la capacidad de mantener una comunicaci\'on
+instant\'anea entre dos personas, hemos llegado a incluso poder realizar pagos. Pero es tan importante
+la evoluci\'on a nivel de dispositivo como a nivel de aplicaciones. Se han desarrollado
+aplicaciones muy potentes que nos facilitan la vida. Un claro ejemplo es el poder gestionar tus
+cuentas del banco e incluso realizar operaciones desde cualquier lugar. Existen aplicaciones
+para todos los gustos, necesidades e intereses.
+
+\section{Historia de la web}
+\label{sec:seccion}
+
+La historia de la web abarca ya m\'as de 25 a\~nos, en los que se han alternado per\'iodos de intenso desarrollo con otros de estancamiento. El primer servidor de p\'aginas web de la historia se puso en marcha en diciembre de 1990. El inventor de la web, Tim Berners-Lee, pretend\'ia crear un sistema que permitiera a los investigadores del CERN compartir f\'acilmente la informaci\'on. La primera versi\'on del lenguaje de marcas inventado por Berners-Lee nunca fue publicado como documento oficial, pero si lo hubiera sido se hubiera llamado HTML 1.0.
+
+Los investigadores del CERN,  diseminaron en sus universidades de origen el sistema creado por Berners-Lee, puesto que se trataba de un sistema abierto y libre. En aquella \'epoca ya exist\'ia Internet, pero su acceso estaba limitado principalmente a Universidades y centros de investigaci\'on.
+
+En noviembre de 1993 se public\'o la versi\'on 1.0 de Mosaic, un navegador creado en la Universidad de Illinois por Marc Andreessen y que superaba a todos al permitir, por ejemplo, incluir im\'agenes en las p\'aginas web.
+
+En 1994 se permiti\'o el acceso de particulares y empresas a Internet. La web se convirti\'o enseguida en el servicio m\'as empleado para ofrecer informaci\'on. La web empez\'o a verse como una gigantesca oportunidad de negocio y Marc Andreessen dej\'o la universidad para fundar Netscape, que publicar\'ia la versi\'on 1.0 de su navegador en diciembre de 1994.
+
+En octubre de 1994 Berners-Lee fund\'o el World Wide Web Consortium (W3C), el W3C est\'a organizado en grupos de trabajo. Los primeros grupos de trabajo que se crearon se dedicaron al HTML y a las CSS.
+
+En 1995 Microsoft incluy\'o en Windows un navegador, Internet Explorer, que poco a poco comenz\'o a crecer en el mercado en detrimento de Netscape. Entre 1995 y 2000 Microsoft y Netscape publicaron nuevas versiones cada a\~no. Para diferenciar sus productos, cada navegador fue incorporando nuevas etiquetas, lo que supuso un riesgo de fragmentaci\'on de la web.
+
+En esos a\~nos, el W3C tambi\'en public\'o recomendaciones a ritmo fren\'etico. Por un lado, para consensuar un HTML com\'un para todos los navegadores. Pero por otro lado, proponiendo innovaciones muy importantes, como la separaci\'on entre contenido y presentaci\'on mediante hojas de estilo (CSS).
+
+En 1995 Brian Eitch cre\'o para Netscape 2.0 el lenguaje de programaci\'on Javascript, cuyos programas se pod\'ian incluir directamente en las p\'aginas web para ser ejecutados por el navegador. Microsoft cre\'o su propia variante parcialmente incompatible. La normalizaci\'on de Javascript la llev\'o a cabo la organizaci\'on ECMA, que en 1997 empez\'o a publicar normas para unificar y desarrollar el lenguaje.
+
+Ante la necesidad por incluir nuevos campos el W3C cre\'o el XML. El problema era que el HTML no cumpl\'ia las nuevas reglas del XML y el W3C plante\'o reformular el HTML de acuerdo con ellas (ese nuevo lenguaje se llamar\'ia XHTML).
+
+En 1998 Netscape cre\'o la organizaci\'on Mozilla.
+
+En el a\~no 2000 la guerra de navegadores culmin\'o con la victoria de Internet Explorer y la desaparici\'on de Netscape. Microsoft decidi\'o no seguir innovando y no habr\'ia nuevas versiones despu\'es de Internet Explorer 6.
+
+Durante estos a\~nos, la organizaci\'on Mozilla desarroll\'o un nuevo navegador, Mozilla, de uso muy minoritario pero que respetaba las recomendaciones del W3C, apareciendo como una alternativa a Internet Explorer.
+
+Debido a la competencia, Microsoft retom\'o el desarrollo de Internet Explorer. En 2004 se cre\'o tambi\'en el WHATWG (grupo formado por Mozilla, Apple y Opera), para retomar el desarrollo del HTML que el W3C hab\'ia abandonado en favor del XHTML, bajo el nombre de HTML 5.
+
+En 2007 el W3C form\'o un grupo de trabajo sobre HTML, que trabajar\'ia conjuntamente con el WHATWG para publicar la recomendaci\'on HTML 5.
+
+En 2009 Google public\'o su propio navegador: Google Chrome. En 2011 el W3C abandon\'o el desarrollo del XHTML y se concentr\'o en el HTML 5.
+
+En 2011 el WHATWG abandon\'o por su parte el nombre de HTML 5 y pas\'o a denominarlo simplemente HTML, abandonando la idea de versiones en favor de una norma "l\'iquida", continuamente modificada y mejorada.
+
+En 2013 Microsoft consigui\'o con Internet Explorer 11 cumplir de forma correcta las antiguas recomendaciones HTML 4 y CSS 2 y admitir lenguajes XML como SVG. Pero para sacar todo el partido a HTML 5, Microsoft cre\'o un nuevo navegador (Edge), que ya no estar\'a ligado a las nuevas versiones de Windows.
+
+En estos a\~nos Google Chrome ha desbancado a Internet Explorer, entre otros motivos debido al gran uso de los tel\'efonos m\'oviles y al hecho de que los usuarios de Windows 7 no pueden usar Edge.
+
+
+\section{Trabajo relacionado}
+\label{sec:seccion}
+
+\section{Tecnolo\'ias}
+\label{sec:seccion}
+
+
+\subsection{HTML5}
+\label{subsec:estilo}
+
+HTML, que significa Lenguaje de Marcado para Hipertextos, es el elemento de construcci\'on
+m\'as b\'asico de una p\'agina web y se usa para crear y representar visualmente una p\'agina web.
+Determina el contenido de la p\'agina web, pero no su funcionalidad. Hiper Texto se refiere a enlaces
+que conectan una p\'aginaWeb con otra, ya sea dentro de una p\'agina web o entre diferentes
+sitios web. Un lenguaje de marcado hace referencia a aquellos lenguajes que emplean etiquetas.
+Estas etiquetas ya est\'an predefinidas dentro del lenguaje respectivo y contienen la informaci\'on
+que ayudan a leer el texto. Su principal diferencia con los lenguajes de programaci\'on es que
+\'estos \'ultimos poseen funciones aritm\'eticas o variables, mientras que los lenguajes de marcado
+no.
+
+HTML5 es la quinta revisi\'on del est\'andar que fue creado en 1990 y su versi\'on definitiva se
+public\'o en octubre de 2014. Con HTML5, los navegadores como Firefox, Chrome, Explorer,
+Safari y m\'as pueden saber c\'omo mostrar una determinada p\'agina web, saber d\'onde est\'an los
+elementos, d\'onde poner las im\'agenes, d\'onde ubicar el texto.
+
+En HTML5, se han tomado en cuenta mejoras en la creaci\'on de la estructura del c\'odigo web
+y en el manejo \'optimo de las etiquetas web. De esta manera, se convierte en un est\'andar mucho
+m\'as vers\'atil, que permitir\'a realizar una interacci\'on mucho m\'as poderosa y simple, mejorando
+la experiencia de uso por parte del usuario y facilitando la depuraci\'on del c\'odigo web.
+
+Las ventajas principales de esta versi\'on son:
+
+\begin{itemize}
+  \item Nueva estructura de etiquetas: permite separar el encabezado, la barra de navegacion, secciones de la p\'agina, textos, di\'alogos y el pi\'e de p\'agina.
+ \item Introduccion de etiquetas video y audio: por medio de las etiquetas <video> y <audio> de HTML5, ahora puedes a\~nadir videos o audio sin necesidad de usar Adobe Flash o cualquier otro plugin de tercero. Toda la acci\'on sucede desde el propio navegador, lo que puede ayudar a disminuir al tama\~no del archivo final de tu p\'agina. 
+ \item Geolocalizaci\'on: permite al sitio detectar la ubicaci\'on de cada usuario que ingresa al sitioweb.
+ \item Aplicaciones web: desarrollar aplicaciones HTML5 tiene la ventaja de que el resultado final es completamente accesible, es decir, se puede acceder a esta aplicaci\'on desde un ordenador, tablet o m\'ovil.
+ \item Capacidad de realizar ejecucciones offline: esto permite realizar aplicaciones de escritorio.
+ \item Canvas: nueva etiqueta de dibujo sobre la p\'agina web.
+
+\end{itemize}
+
+\subsection{JavaScript}
+\label{subsec:estilo}
+
+JavaScript es un lenguaje de programaci\'on que se utiliza principalmente para crear p\'aginas
+web din\'amicas. Una p\'agina web din\'amica es aquella que incorpora efectos como texto que
+aparece y desaparece, animaciones, acciones que se activan al pulsar botones y ventanas con
+mensajes de aviso al usuario.
+
+Surgi\'o por la necesidad de ampliar las posibilidades del HTML. En efecto, al poco tiempo
+de que las p\'aginas web apareciesen, se hizo patente que se necesitaba algo m\'as que las limitadas
+prestaciones del lenguaje b\'asico, ya que el HTML solamente provee de elementos que actuan
+exclusivamente sobre el texto y su estilo, pero no permite, como ejemplo sencillo, ni siquiera
+abrir una nueva ventana o emitir un mensaje de aviso. La temprana aparici\'on de este lenguaje,
+es posiblemente la causa de que se haya convertido en un est\'andar soportado por todos los
+navegadores actuales.
+
+Los documentos HTML permiten incrustar fragmentos de c\'odigo JavaScript, bien dentro
+del propio archivo HTML o bien realizando una carga de ese c\'odigo indicando el archivo donde
+se encuentra el c\'odigo JavaScript. Dentro de un documento HTML puede haber ninguno, uno o
+varios scripts de JavaScript.
+
+Adem\'as, tambien es utilizado del lado del servidor, ya que tiene la ventaja de poseer un
+excelente modelo de eventos, ideal para la programaci\'on as\'incrona.
+
+
+\subsection{TypeScript}
+\label{subsec:estilo}
+
+TypeScript es un lenguaje de programaci\'on de alto nivel que implementa muchos de los
+mecanismos m\'as habituales de la programaci\'on orientada a objetos, pudiendo extraer grandes
+beneficios que ser\'an especialmente deseables en aplicaciones grandes, capaces de escalar correctamente
+durante todo su tiempo de mantenimiento. Puede ser usado para desarrollar aplicaciones
+JavaScript que se ejecutar\'an en el lado del cliente o del servidor (Node.js).
+
+TypeScript convierte su c\'odigo en Javascript com\'un. Es llamado tambi\'en Superset de Javascript,
+lo que significa que si el navegador est\'a basado en Javascript, este nunca llegar\'a a saber que el
+c\'odigo original fue realizado con TypeScript y ejecutar\'a el Javascript como lenguaje original.
+
+
+\subsection{CSS3}
+\label{subsec:estilo}
+
+Es el lenguaje utilizado para describir la presentaci\'on de documentos HTML o XML. Al
+crear una p\'agina web, se utiliza en primer lugar el lenguaje HTML/XHTML para marcar los
+contenidos, es decir, para designar la funci\'on de cada elemento dentro de la p\'agina y una vez
+creados los contenidos, se utiliza el lenguaje CSS para definir el aspecto de cada elemento.
+
+El objetivo inicial de CSS, separar el contenido de la forma, se cumpli\'o ya con las primeras
+especificaciones del lenguaje. Sin embargo, el objetivo de ofrecer un control total a los dise\~nadores
+sobre los elementos de la p\'agina ha sido m\'as dif\'icil de cubrir. Las especificaciones anteriores
+del lenguaje ten\'ian muchas utilidades para aplicar estilos a las webs, pero los desarrolladores
+aun contin\'uan usando trucos diversos para conseguir efectos tan comunes o tan deseados como
+los bordes redondeados o el sombreado de elementos en la p\'agina.
+
+
+\subsection{Sass}
+\label{subsec:estilo}
+
+Sass es un metalenguaje de Hojas de Estilo en Cascada (CSS). Es un lenguaje de script que
+es traducido a CSS.
+
+Extiende CSS proveyendo de varios mecanismos que est\'an presentes en los lenguajes de
+programaci\'on tradicionales, particularmente lenguajes orientados a objetos, pero \'este no est\'a
+disponible para CSS3 como tal. Cuando SassScript se interpreta, \'este crea bloques de reglas CSS
+para varios selectores que est\'an definidos en el fichero SASS. El int\'erprete de SASS traduce
+SassScript en CSS.
+
+Sass permite la definici\'on de variables de tipo number, string, colores y booleanos. Otra
+ventaja es que soporta mixins Un mixin es una secci\'on de c\'odigo que contiene c\'odigo Sass.
+Cada vez que se llama un mixin en el proceso de conversi\'on el contenido del mismo es insertado
+en el lugar de la llamada. Los mixin permiten una soluci\'on limpia a las repeticiones de c\'odigo,
+as\'i como una forma f\'acil de alterar el mismo.
+
+
+\subsection{Node.js}
+\label{subsec:estilo}
+
+Node.js es un entorno de ejecuci\'on multiplataforma de c\'odigo abierto para desarrollar aplicaciones
+web. Esta librer\'ia se ejecuta sobre JavaScript y est\'a basado en el motor V8 de Javascript
+de Google. Este motor est\'a dise\~nado para correr en un navegador y ejecutar el c\'odigo de 
+Javascript de una forma extremadamente r\'apida.
+
+Se trata de un int\'erprete Javascript del lado del servidor, lo que permite utilizar el mismo
+lenguaje de programaci\'on tanto para cliente como para servidor.
+Node sirve para facilitar la creaci\'on de aplicaciones web escalables de manera sencilla y con
+gran estabilidad, pudiendo ser utilizado para desarrollar cualquier tipo de aplicaci\'on. Adem\'as,
+es importante volver a destacar su alt\'isima velocidad y su flexibilidad, dos de sus cualidades
+m\'as importantes.
+
+Trabaja con un \'unico hilo de ejecuci\'on que es el encargado de organizar todo el flujo de
+trabajo que se deba realizar. Gestiona sus tareas de manera as\'incrona y para trabajar de manera
+\'optima delega todo el trabajo en un poll de threads. La libreria que construye esto es Libuv, una
+vez que el trabajo ha sido completado emite un evento recibido por Node.js.
+
+
+\subsection{Ionic 2}
+\label{subsec:estilo}
+
+Se trata de un framework destinado al desarrollo de aplicaciones h\'ibridas, aunque tambi\'en
+puede ser utilizado para para implementar aplicaciones web. Una aplicaci\'on h\'ibrida es aquella
+desarrollada por las tecnolog\'ias web: HTML, CSS Y JavaScript. Este tipo de aplicaciones tienen
+una serie de ventajas como ser compatibles para una gran cantidad de sistemas operativos con
+un tiempo de desarrollo menor, pero a cambio de esta gran ventaja el rendimiento es menor que
+en una aplicaci\'on nativa.
+
+Su caracter\'i\'itica fundamental es que usa por debajo Angular, esto le da ventajas como tener
+una buena estructura de proyecto y contar con una buena gama de componentes y directivas.
+
+\subsubsection{Componentes}
+\label{subsec:estilo}
+
+Los componentes se utilizan unos a otros para la obtenci\'on de objetivos globales de la aplicaci
+\'on. Est\'an pensados para, de manera modular y encapsulada, resolver peque\~nos problemas.
+Ionic ofrece componentes f\'aciles de utilizar, pero para comportamientos m\'as espec\'i\'iicos de
+nuestro modelo de negocio, ser\'a necesario crear nuestros propios componentes.
+
+Los componentes de Ionic 2 se adaptan al dispositivo est\'eticamente. Manteniendo el mismo
+c\'odigo, en un dispositivo iOS tiene diferente vista que en un dispositivo Android, ya que se
+visi\'on de nativa y adem\'as da al usuario una experiencia cercana a la que est\'a acostumbrada en
+su tel\'efono. Sin embargo, es decisi\'on del desarrollador mantener esta visi\'on en su aplicaci\'on o
+personalizar la est\'etica a su gusto.
+adapta al sistema operativo en el que se compila. Esto permite que una aplicaci\'on h\'ibrida de
+
+\subsubsection{Apache Cordova}
+\label{subsec:estilo}
+
+Para el acceso a componentes nativos desde la aplicaci\'on de Ionic, como la c\'amara, aceler
+\'ometro, teclado, usa plugins que proporciona Apache Cordova. Tambi\'en nos permite compilar
+el desarrollo realizado con Ionic con tecnolog\'ias web en aplicaciones para m\'oviles instalables
+mediante tiendas de aplicaciones.
+
+\subsubsection{Estructura}
+\label{subsec:estilo}
+
+Un proyecto con Ionic contiene una lista de capetas y archivos. Cada parte tiene su funci\'on:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=3cm, keepaspectratio]{img/estructura_ionic}
+  \caption{Estructura ionic}
+  \label{figura:estructura_ionic}
+\end{figure}
+
+\begin{itemize}
+  \item SRC: carpeta que contiene los archivos fuente con el c\'odigo desarrollado de la aplicaci\'on.
+ \item WWW: contiene los archivos que se producen al realizar la transpilaci\'on del TypeScript y compilado de los archivos Sass, es decir, la trasformaci\'on de todos los archivos de 'src', de tal manera que el navegador sea capaz de entender.
+ \item PLUGINS: contiene todos los plugins nativos que se utilizan para la aplicaci\'on.
+ \item PLATFORM: archivos de cada plataforma a la que da soporte la aplicaci\'on. Suele ser Android e iOS.
+ \item RESOURCES: contiene los iconos de la aplicaci\'on y el splash screen.
+ \item HOOKS: scripts que se crean para ser ejecutados autom\'aticamente despu\'es de algo espec\'ifico.
+\item NODE MODULES: dependencias de npm que vienen definidas en el package.json e instaladas en local dentro de tu proyecto.
+
+\end{itemize}
+
+
+\subsection{Express}
+\label{subsec:estilo}
+
+Express es una infraestructura de aplicaciones web Node.js m\'inima y flexible que proporciona
+un conjunto s\'olido de caracter\'isticas para las aplicaciones web y m\'oviles. Contiene muchos
+m\'etodos de programa de utilidad HTTP y middleware.
+
+Node.js es una plataforma construida sobre el motor de JavaScript de Google Chrome (V8)
+que permite la ejecuci\'on de JavaScript en el lado del servidor. Permite montar un servidor HTTP
+utilizando el modulo http que viene incluido en el core de Node.
+
+Para comenzar un proyecto en Express es necesario configurar en que puerto e IP va a estar
+escuchando el servidor para atender a las peticiones. Adem\'as, es necesario a\~nadir las urls a las
+que tiene que atender y que m\'etodo realizar para cada caso.
+
+\subsubsection{Estructura}
+\label{subsec:estilo}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=3cm, keepaspectratio]{img/estructura_express}
+  \caption{Estructura express}
+  \label{figura:estructura_express}
+\end{figure}
+
+
+\subsection{MongoDB}
+\label{subsec:estilo}
+
+Se trata de una base de datos no relacional, es decir, NoSQL. Esto significa que los datos no
+son almacenados en tablas y no garantiza consistencia. Este tipo de bases de datos tienen ciertas
+desventajas, como: poca eficiencia en aplicaciones que necesiten usar los datos intensivamente,
+o si contiene gran n\'umero de indexaciones. A cambio de esta desventaja tiene la capacidad de
+manejar mucha cantidad de datos, no generan cuellos de botella y se ejecutan en clusters de
+m\'aquinas baratas.
+
+Este tipo de bases de datos surgieron por el Big Data, donde la informaci\'on que se genera
+es muy grande, de manera r\'apida y constante, y que, adem\'as, en ocasionas la forma es no
+estructurada y cambiante. Las bases de datos relacionales ten\'i\'in carencias para afrontar esto.
+
+\subsubsection{Colecciones}
+\label{subsec:estilo}
+
+MongoDB es una base de datos orientada a documentos, es decir, los documentos son almacenados
+en BSON, que es una representaci\'on binaria de JSON. No siguen un esquema dijo,
+los documentos de una misma colecci\'on pueden tener esquemas diferentes.
+
+En MongoDB los documentos se agrupan en colecciones. Aunque lo normal es que los documentos
+de una colecci\'on compartan estructura, puede ser flexible porque la estructura no se
+impone a ningu´n documento y dinm´ ica porque la estructura puede cambiar. En el caso de que se
+decida variar la estructura de datos, no ser\'ia necesarios crear ni modificar las colecciones, bastar\'ia con almacenar los nuevos documentos, con una estructura distinta, en la misma colecci\'on
+o en otra.
+
+No proporciona integridad referencial. Esto significa que, si en una colecci\'on hacemos referencia
+a un documento de otra colecci\'on, la base de datos no tiene la responsabilidad de comprobar
+que el documento referenciado existe.
+
+
+\subsubsection{Velocidad}
+\label{subsec:estilo}
+
+MongoDB tiene una baja velocidad en generar o modificar informaci\'on. Esto provoca que
+el acceso a la base de datos este m\'as tiempo bloqueado. Una operaci\'on de escritura bloquea el
+acceso a toda la base de datos en la que se efect\'ua la operaci\'on. Para solucionar esto hay que
+evitar actualizaciones que provoquen movimientos, es decir, que el crecimiento de un documento
+sea tan grande que suponga un cambio de caj\'on. Cada documento se encuentra almacenado
+en un caj\'on el cual cuenta con un espacio extra para posibles crecimientos futuros.
+
+A cambio de esta baja velocidad de escritura, proporciona una gran rapidez de lectura.
+
+
+\section{Estructura de la memoria}
+\label{sec:estructura}
+
+En esta secci�n se deber�a introducir la esctura de la memoria. As�:
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OBJETIVOS %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage % empezamos en p�gina impar
+\chapter{Objetivos} % t�tulo del cap�tulo (se muestra)
+\label{chap:objetivos} % identificador del cap�tulo (no se muestra, es para poder referenciarlo)
+
+\section{Objetivo general} % t�tulo de secci�n (se muestra)
+\label{sec:objetivo-general} % identificador de secci�n (no se muestra, es para poder referenciarla)
+
+Aqu� vendr�a el objetivo general en una frase:
+Mi trabajo fin de grado consiste en crear de una herramienta de an�lisis de los comentarios jocosos en repositorios de software libre alojados en la plataforma GitHub.
+
+Recuerda que los objetivos siempre vienen en infinitivo.
+
+
+\section{Objetivos espec�ficos}
+\label{sec:objetivos-especificos}
+
+Los objetivos espec�ficos se pueden entender como las tareas en las que se ha desglosado el objetivo general.
+Y, s�, tambi�n vienen en infinitivo.
+
+
+\section{Planificaci�n temporal}
+\label{sec:planificacion-temporal}
+
+A m� me gusta que aqu� pong�is una descripci�n de lo que os ha llevado realizar el trabajo.
+Hay gente que a�ade un diagrama de GANTT.
+Lo importante es que quede claro cu�nto tiempo llevas (tiempo natural, p.ej., 6 meses) y a qu� nivel de esfuerzo (p.ej., principalmente los fines de semana).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ESTADO DEL ARTE %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\chapter{Estado del arte}
+
+Descripci�n de las tecnolog�as que utilizas en tu trabajo. 
+Con dos o tres p�rrafos por cada tecnolog�a, vale. 
+Se supone que aqu� viene todo lo que no has hecho t�.
+
+Puedes citar libros, como el de Bonabeau et al. sobre procesos estigm�rgicos~\cite{bonabeau:_swarm}. % Nota que el ~ a�ade un espacio en blanco, pero no deja que exista un salto de l�nea. Imprescindible ponerlo para las citas.
+
+Tambi�n existe la posibilidad de poner notas al pie de p�gina, por ejemplo, una para indicarte que visite la p�gina de LibreSoft\footnote{\url{http://www.libresoft.es}}.
+
+\section{Secci�n 1} 
+\label{sec:seccion1}
+
+Hemos hablado de c�mo incluir figuras.
+Pero no hemos dicho nada de tablas.
+A m� me gustan las tablas.
+Mucho.
+Aqu� un ejemplo de tabla, la Tabla~\ref{tabla:ejemplo}.
+
+\begin{table}
+ \begin{center}
+  \begin{tabular}{ | l | c | r |} % tenemos tres colummnas, la primera alineada a la izquierda (l), la segunda al centro (c) y la tercera a la derecha (r). El | indica que entre las columnas habr� una l�nea separadora.
+    \hline
+    1 & 2 & 3 \\ \hline % el hline nos da una l�nea vertical
+    4 & 5 & 6 \\ \hline
+    7 & 8 & 9 \\
+    \hline
+  \end{tabular}
+  \label{tabla:ejemplo}
+  \caption{Ejemplo de tabla}
+ \end{center}
+\end{table}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DISE�O E IMPLEMENTACI�N %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\chapter{Dise�o e implementaci�n}
+
+Aqu� viene todo lo que has hecho t� (tecnol�gicamente). 
+Puedes entrar hasta el detalle. 
+Es la parte m�s importante de la memoria, porque describe lo que has hecho t�.
+Eso s�, normalmente aconsejo no poner c�digo, sino diagramas.
+
+\section{Arquitectura general} 
+\label{sec:arquitectura}
+
+Si tu proyecto es un software, siempre es bueno poner la arquitectura (que es c�mo se estructura tu programa a ``vista de p�jaro'').
+
+Por ejemplo, puedes verlo en la figura~\ref{fig:arquitectura}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=9cm, keepaspectratio]{img/arquitectura}
+  \caption{Estructura del parser b�sico}
+  \label{fig:arquitectura}
+\end{figure}
+
+Si utilizas una base de datos, no te olvides de incluir tambi�n un diagrama de entidad-relaci�n.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RESULTADOS %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\chapter{Resultados}
+
+En este cap�tulo se incluyen los resultados de tu trabajo fin de grado.
+
+Si es una herramienta de an�lisis lo que has realizado, aqu� puedes poner ejemplos de haberla utilizado para que se vea su utilidad.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONCLUSIONES %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\chapter{Conclusiones}
+\label{chap:conclusiones}
+
+
+\section{Consecuci�n de objetivos}
+\label{sec:consecucion-objetivos}
+
+Esta secci�n es la secci�n espejo de las dos primeras del cap�tulo de objetivos, donde se planteaba el objetivo general y se elaboraban los espec�ficos.
+
+Es aqu� donde hay que debatir qu� se ha conseguido y qu� no. 
+Cuando algo no se ha conseguido, se ha de justificar, en t�rminos de qu� problemas se han encontrado y qu� medidas se han tomado para mitigar esos problemas.
+
+
+\section{Aplicaci�n de lo aprendido}
+\label{sec:aplicacion}
+
+Aqu� viene lo que has aprendido durante el Grado/M�ster y que has aplicado en el TFG/TFM. Una buena idea es poner las asignaturas m�s relacionadas y comentar en un p�rrafo los conocimientos y habilidades puestos en pr�ctica.
+
+\begin{enumerate}
+  \item a
+  \item b
+\end{enumerate}
+
+
+\section{Lecciones aprendidas}
+\label{sec:lecciones_aprendidas}
+
+Aqu� viene lo que has aprendido en el Trabajo Fin de Grado/M�ster.
+
+\begin{enumerate}
+  \item a
+  \item b
+\end{enumerate}
+
+
+\section{Trabajos futuros}
+\label{sec:trabajos_futuros}
+
+Ning�n software se termina, as� que aqu� vienen ideas y funcionalidades que estar�a bien tener implementadas en el futuro.
+
+Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AP�NDICE(S) %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\appendix
+\chapter{Manual de usuario}
+\label{app:manual}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BIBLIOGRAFIA %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+
+% Las siguientes dos instrucciones es todo lo que necesitas
+% para incluir las citas en la memoria
+\bibliographystyle{abbrv}
+\bibliography{memoria}  % memoria.bib es el nombre del fichero que contiene
+% las referencias bibliogr�ficas. Abre ese fichero y mira el formato que tiene,
+% que se conoce como BibTeX. Hay muchos sitios que exportan referencias en
+% formato BibTeX. Prueba a buscar en http://scholar.google.com por referencias
+% y ver�s que lo puedes hacer de manera sencilla.
+% M�s informaci�n: 
+% http://texblog.org/2014/04/22/using-google-scholar-to-download-bibtex-citations/
+
+\end{document}
