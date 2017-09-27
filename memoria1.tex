@@ -390,25 +390,36 @@ en el lugar de la llamada. Los mixin permiten una soluci\'on limpia a las repeti
 as\'i como una forma f\'acil de alterar el mismo.
 
 
-\subsection{Node.js}
+\subsection{Angular}
 \label{subsec:estilo}
 
-Node.js es un entorno de ejecuci\'on multiplataforma de c\'odigo abierto para desarrollar aplicaciones
-web. Esta librer\'ia se ejecuta sobre JavaScript y est\'a basado en el motor V8 de Javascript
-de Google. Este motor est\'a dise\~nado para correr en un navegador y ejecutar el c\'odigo de 
-Javascript de una forma extremadamente r\'apida.
+Angular es un framework de desarrollo para JavaScript creado por Google. La finalidad de Angular es facilitar el desarrollo de aplicaciones web SPA y adem\'as proporcionar herramientas para trabajar con los elementos de una web de una manera m\'as sencilla y optima. Una aplicaci\'on web SPA creada con Angular es una web de una sola p\'agina, en la cual la navegaci\'on entre secciones y p\'aginas de la aplicaci\'on, as\'i como la carga de datos, se realiza de manera din\'amica, casi instant\'anea, asincronamente haciendo llamadas al servidor (backend con un API REST) y sobre todo sin refrescar la p\'agina en ning\'un momento. Es decir las aplicaciones web que podemos hacer con Angular son reactivas y no recargan el navegador, todo es muy din\'amico y as\'incrono con ajax.
 
-Se trata de un int\'erprete Javascript del lado del servidor, lo que permite utilizar el mismo
-lenguaje de programaci\'on tanto para cliente como para servidor.
-Node sirve para facilitar la creaci\'on de aplicaciones web escalables de manera sencilla y con
-gran estabilidad, pudiendo ser utilizado para desarrollar cualquier tipo de aplicaci\'on. Adem\'as,
-es importante volver a destacar su alt\'isima velocidad y su flexibilidad, dos de sus cualidades
-m\'as importantes.
 
-Trabaja con un \'unico hilo de ejecuci\'on que es el encargado de organizar todo el flujo de
-trabajo que se deba realizar. Gestiona sus tareas de manera as\'incrona y para trabajar de manera
-\'optima delega todo el trabajo en un poll de threads. La libreria que construye esto es Libuv, una
-vez que el trabajo ha sido completado emite un evento recibido por Node.js.
+
+
+
+
+Angular surge como evoluci\'on del framework AngularJS, el cual lanzado por Google en el 2009. Empez\'o a ser tendencia y a formar parte del inter\'es de los desarrollos en el 2012. Su crecimiento a partir de entonces fu\'e exponencial. Empezaron a salir librerias, que ayudaban a cubrir ciertas funcionalidades. Angular es un nuevo framework a pesar de venir de AngularJS.
+
+Los fundamentos de Angular son: 
+
+\begin{itemize}
+  \item Web components: 
+
+	Es una API estandar para crear componentes. Tiene cuatros partes principales: las templates son bloques de html optimizados para ser reusados, HTML imports permite la carga de dependencias de la forma mas optima posible, Custom Elements permite definir tabs propios para 		HTML5 con su propio ciclo de vida y su l\'ogica y Shadow DOM que se centra en modulorizar el DOM, esto da la ventaja de modularizar el CSS y evitar conflictos entre distintas reglas del CSS.
+
+\item Reactive Programming: 
+
+	Con este nuevo paradigma se intenta simplificar la arquitectura de las aplicaciones y centrarlo mas en el uso real de la aplicaciopn: responder a eventos, tareas asincronas y flujos con esas tareas asincronas, etc.
+	Las ventajas de esto es el c\'odigo asincrono, que se hace mas sencillo por ejemplo hacer una peticion REST y procesarla y posteriormente unirlo a una actualizacion de la vista.
+	Nos permite realizar un c\'odigo limpio, concurrente, escalable y f\'acil de gestion de procesos as\'incronos. 
+
+	En Angular esto es utilizado en la libreria RXjs para binding y peticiones HTTP.
+
+\end{itemize}
+
+
 
 
 \subsection{Ionic 2}
@@ -469,6 +480,27 @@ Un proyecto con Ionic contiene una lista de capetas y archivos. Cada parte tiene
 \item NODE MODULES: dependencias de npm que vienen definidas en el package.json e instaladas en local dentro de tu proyecto.
 
 \end{itemize}
+
+\subsection{Node.js}
+\label{subsec:estilo}
+
+Node.js es un entorno de ejecuci\'on multiplataforma de c\'odigo abierto para desarrollar aplicaciones
+web. Esta librer\'ia se ejecuta sobre JavaScript y est\'a basado en el motor V8 de Javascript
+de Google. Este motor est\'a dise\~nado para correr en un navegador y ejecutar el c\'odigo de 
+Javascript de una forma extremadamente r\'apida.
+
+Se trata de un int\'erprete Javascript del lado del servidor, lo que permite utilizar el mismo
+lenguaje de programaci\'on tanto para cliente como para servidor.
+Node sirve para facilitar la creaci\'on de aplicaciones web escalables de manera sencilla y con
+gran estabilidad, pudiendo ser utilizado para desarrollar cualquier tipo de aplicaci\'on. Adem\'as,
+es importante volver a destacar su alt\'isima velocidad y su flexibilidad, dos de sus cualidades
+m\'as importantes.
+
+Trabaja con un \'unico hilo de ejecuci\'on que es el encargado de organizar todo el flujo de
+trabajo que se deba realizar. Gestiona sus tareas de manera as\'incrona y para trabajar de manera
+\'optima delega todo el trabajo en un poll de threads. La libreria que construye esto es Libuv, una
+vez que el trabajo ha sido completado emite un evento recibido por Node.js.
+
 
 
 \subsection{Express}
