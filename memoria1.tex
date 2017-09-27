@@ -393,14 +393,8 @@ as\'i como una forma f\'acil de alterar el mismo.
 \subsection{Angular}
 \label{subsec:estilo}
 
-Angular es un framework de desarrollo para JavaScript creado por Google. La finalidad de Angular es facilitar el desarrollo de aplicaciones web SPA y adem\'as proporcionar herramientas para trabajar con los elementos de una web de una manera m\'as sencilla y optima. Una aplicaci\'on web SPA creada con Angular es una web de una sola p\'agina, en la cual la navegaci\'on entre secciones y p\'aginas de la aplicaci\'on, as\'i como la carga de datos, se realiza de manera din\'amica, casi instant\'anea, asincronamente haciendo llamadas al servidor (backend con un API REST) y sobre todo sin refrescar la p\'agina en ning\'un momento. Es decir las aplicaciones web que podemos hacer con Angular son reactivas y no recargan el navegador, todo es muy din\'amico y as\'incrono con ajax.
+Angular es un framework de desarrollo para JavaScript creado por Google. La finalidad de Angular es facilitar el desarrollo de aplicaciones web SPA y adem\'as proporcionar herramientas para trabajar con los elementos de una web de una manera m\'as sencilla y \'optima. Una aplicaci\'on web SPA creada con Angular es una web de una sola p\'agina, en la cual la navegaci\'on entre secciones y p\'aginas de la aplicaci\'on, as\'i como la carga de datos, se realiza de manera din\'amica, casi instant\'anea, asincronamente haciendo llamadas al servidor (backend con un API REST) y sobre todo sin refrescar la p\'agina en ning\'un momento. Es decir las aplicaciones web que podemos hacer con Angular son reactivas y no recargan el navegador, todo es muy din\'amico y as\'incrono con ajax.
 
-
-
-
-
-
-Angular surge como evoluci\'on del framework AngularJS, el cual lanzado por Google en el 2009. Empez\'o a ser tendencia y a formar parte del inter\'es de los desarrollos en el 2012. Su crecimiento a partir de entonces fu\'e exponencial. Empezaron a salir librerias, que ayudaban a cubrir ciertas funcionalidades. Angular es un nuevo framework a pesar de venir de AngularJS.
 
 Los fundamentos de Angular son: 
 
@@ -601,15 +595,36 @@ hora de organizar eventos o reuniones, adem\'as de realizar encuestas de todo ti
 \label{sec:objetivos-especificos}
 
 
+\subsection{Frontend}
+\label{sec:objetivos-especificos}
+
 \begin{itemize}
-  \item Buscar informaci\'on sobre tecnolog\'ias muy utilizadas en la actualidad y as\'i elegir con que tecnolog\'ias llevar a cabo el desarrollo de la aplicaci\'on.
-  \item Realizar un tutorial en Angular y otro de Express para aprender a utilizar estos frameworks.
-  \item Realizar dise\'no de las pantallas de la aplicaci\'on, de tal manera que sean lo m\'as intuitivas y f\'aciles para el usuario.
- \item Desarrollar las pantallas con su correspondiente funcionalidad.
- \item Desarrollar un resvidor REST mediante el framework Expess y conectar con la base de datos MongoDB.
- \item Dise\'nar la arquitectura del backend, es decir, definir los modelos y colecciones.
- \item Conectar la parte frontend con la parte backend, mediante peticiones HTTP.
- \item Testear la aplicaci\'on.
+ \item Controlar los formatos introducidos al registrarse, de tal manera que no pueda introducirse un email con formato no v\'alido ni una contrase\'na con menos de 6 caracteres.
+ \item Visi\'on global del usuario en cuanto a todas las encuestas que ha creado y poder visualizar los votos de esta.
+ \item Permitir elegir el tipo de encuesta que se quiere crear. Esta elecci\'on sera entre encuesta de tipo fecha o de tipo texto.
+ \item Dar opci\'on al usuario de a\'nadir hora y fecha o solo una fecha, en el caso de encuesta de tipo fecha.
+ \item Al crear una encuesta poder elegir si se permite votar multiples \'opciones o se restringe a una sola votaci\'on por persona.
+ \item Validar los campos introducidos al crear una encuesta. Los campos obligatorios son el t\'itulo y las opciones.
+ \item Como datos opcionales, poder a\'nadir a la encuesta la ubicaci\'on del evento o alg\'un comentario.
+ \item Un usuario s\'olo podr\'a enviar la encuesta creada a aquellos usuarios que est\'en en su lista de amigos
+ \item Tr\'as realizar la votaci\'on de una encuesta, es posible modificar el voto.
+ \item Un usuario puede cambiar sus datos personales de la cuenta, que son el nombre de usuario y contrase\'na.
+\item Para facilitar la b\'usqueda de amigos, el usuario no deber\'a introducir el nombre concreto en el buscador, se hace una b\'usqueda de todos los nombres que contengan los caracteres introducidos.
+\end{itemize}
+
+\subsection{Backend}
+\label{sec:objetivos-especificos}
+
+
+
+
+\begin{itemize}
+ \item S\'olo puede haber un nombre de usuario y email registrado en la aplicaci\'on.
+ \item Encriptar las contrase\'nas que se han registrado y as\'i guardarlas en la base de datos.
+ \item Permitir el cambio de nombre de usuario o contrase\'na, siempre que el usuario introduzca una contrase\'na v\'alida.
+ \item Permitir borrar una cuenta.
+ 
+ 
 
 \end{itemize}
 
@@ -780,7 +795,7 @@ contrase´na podr\'a realizar cambios.
 Esta es la parte principal de la aplicaci\'on, la creaci\'on de la encuesta.
 Existen dos tipos de encuesta: por fecha o por texto. En una encuesta por fecha, se podr\'a 
 votar sobre fechas y horas. En el caso de una encuesta por texto las votaciones se realizaran
-entre textos que pueden ser de cualquier tipo. Como se ve en la figura, esta eleccion se hace
+entre textos que pueden ser de cualquier tipo. Como se ve en la figura, esta elecci\'on se hace
 pulsando en el boton 'Nueva encuesta'.
 
 Una vez selecionado el tipo de encuesta que se quiere crear, se accede a rellenar los datos
