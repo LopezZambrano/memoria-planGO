@@ -20,6 +20,7 @@
 \documentclass[a4paper, 12pt]{book}
 %\usepackage[T1]{fontenc}
 
+\usepackage{subfig}
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
 \usepackage{times}
 \usepackage[latin1]{inputenc}
@@ -395,7 +396,6 @@ as\'i como una forma f\'acil de alterar el mismo.
 
 Angular es un framework de desarrollo para JavaScript creado por Google. La finalidad de Angular es facilitar el desarrollo de aplicaciones web SPA y adem\'as proporcionar herramientas para trabajar con los elementos de una web de una manera m\'as sencilla y \'optima. Una aplicaci\'on web SPA creada con Angular es una web de una sola p\'agina, en la cual la navegaci\'on entre secciones y p\'aginas de la aplicaci\'on, as\'i como la carga de datos, se realiza de manera din\'amica, casi instant\'anea, asincronamente haciendo llamadas al servidor (backend con un API REST) y sobre todo sin refrescar la p\'agina en ning\'un momento. Es decir las aplicaciones web que podemos hacer con Angular son reactivas y no recargan el navegador, todo es muy din\'amico y as\'incrono con ajax.
 
-
 Los fundamentos de Angular son: 
 
 \begin{itemize}
@@ -403,13 +403,12 @@ Los fundamentos de Angular son:
 
 	Es una API estandar para crear componentes. Tiene cuatros partes principales: las templates son bloques de html optimizados para ser reusados, HTML imports permite la carga de dependencias de la forma mas optima posible, Custom Elements permite definir tabs propios para 		HTML5 con su propio ciclo de vida y su l\'ogica y Shadow DOM que se centra en modulorizar el DOM, esto da la ventaja de modularizar el CSS y evitar conflictos entre distintas reglas del CSS.
 
-\item Reactive Programming: 
+\item Programaci\'on reactiva:
 
-	Con este nuevo paradigma se intenta simplificar la arquitectura de las aplicaciones y centrarlo mas en el uso real de la aplicaciopn: responder a eventos, tareas asincronas y flujos con esas tareas asincronas, etc.
-	Las ventajas de esto es el c\'odigo asincrono, que se hace mas sencillo por ejemplo hacer una peticion REST y procesarla y posteriormente unirlo a una actualizacion de la vista.
-	Nos permite realizar un c\'odigo limpio, concurrente, escalable y f\'acil de gestion de procesos as\'incronos. 
+La programaci\'on reactiva es un nuevo paradigma orientado a programar basado en flujos de datos que son los encargados de transmitir los cambios a nuestra aplicaci\'on. Con este nuevo paradigma se intenta simplificar la arquitectura de las aplicaciones y centrarlo mas en el uso real de la aplicaciopn: responder a eventos, tareas asincronas y flujos con esas tareas asincronas, etc.
 
-	En Angular esto es utilizado en la libreria RXjs para binding y peticiones HTTP.
+En Angular esto se puede llevar a cabo con la librer\'ia RxJS. Dicha librer\'ia es una enorme cantidad de clases y m\'etodos para poder hacer que toda la programaci\'on que has venido haciendo se pueda manejar de manera reactiva basada en Observables de manera f\'acil.
+
 
 \end{itemize}
 
@@ -571,6 +570,20 @@ A cambio de esta baja velocidad de escritura, proporciona una gran rapidez de le
 \section{Estructura de la memoria}
 \label{sec:estructura}
 
+Despu\'es de esta introducci\'on, en la que hemos analizado diferentes plataformas que motivan
+el desarrollo de este proyecto y ofrecido una visi\'on global del mundo web, explicando
+sus or\'igenes, como ha evolucionado su desarrollo en la actualidad con tecnolog\'ias modernas
+y comentando brevemente las tecnolog\'ias y herramientas utilizadas en este proyecto, continuaremos
+describiendo las necesidades que han llevado a la realizaci\'on de este Trabajo Fin
+de Grado. Esto se presenta en el cap\'itulo 2.
+
+En el cap\'itulo 3 se explica el dise\'no e implementacion del proyecto. De la parte frontend se detalla el mapa 
+de navegac\'ion que contiene la aplicaci\'on, el dise\'no de cada pantalla con su correspondiente funcionalidad y la 
+estructura de proyecto. De la parte backend se describe la estructura de colecciones de la base de datos,
+los controladores utilizados.
+
+.....
+
 
 
 
@@ -688,15 +701,30 @@ jer\'arquicas para las p\'aginas que tienen relaciones m\'as complejas.
 \subsubsection{Login}
 \label{sec:login}
 
+\begin{figure}[H]
+ \centering
+  \subfloat[Login]{
+   \label{f:login}
+    \includegraphics[width=0.3\textwidth]{img/login.png}}
+  \subfloat[Error]{
+   \label{f:error}
+    \includegraphics[width=0.3\textwidth]{img/login_error.png}}
+ \caption{Pantalla de login}
+ \label{f:animales}
+\end{figure}
+
 En la pantalla de login podemos encontrar dos inputs para poder introducir el correo y la
 contrase\'na. De esta forma se puede comprobar si el usuario tiene cuenta en la aplicaci\'on y
 adem\'as se identifica al usuario que est\'a usando la aplicaci\'on.
+
 Se trata de un formulario reactivo, esto permite que los valores no tienen que ser recuperados
 de un servidor, se pueden validar de forma inmediata. Ambos son campos requeridos por lo que
 se comprueba que han sido introducidos, y en el caso de la contrase\'na que contenga m\'inimo 6
 caracteres. Para el caso del email, se comprueba que sea un formato valido.
+
 Tambi\'en encontramos un enlace para que aquellos usuarios que a\'un no han utilizado esta
 aplicaci\'on puedan crearse una cuenta. Este enlace lleva a la p\'agina de registro.
+
 Finalmente encontramos un bot\'on para iniciar sesi\'on. Al pulsar en este bot\'on se realiza la
 validaci\'on del formato de email y se manda una petici\'on al servidor.
 
@@ -733,12 +761,26 @@ Al pulsar alguno de los accesos directos, se produce la navegaci\'on a la pantal
 \subsubsection{Header}
 \label{sec:header}
 
+\begin{figure}[H]
+ \centering
+  \subfloat[Men\'u]{
+   \label{f:pendientes}
+    \includegraphics[width=0.3\textwidth]{img/header_menu.png}}
+  \subfloat[Atr\'as]{
+   \label{f:editar}
+    \includegraphics[width=0.3\textwidth]{img/header_menu.png}}
+ \caption{Header}
+ \label{f:header}
+\end{figure}
+
 El header cuenta con 4 botones:
 
 \begin{itemize}
 \item Men\'u latera: nos permite acceder a cualquier parte de la aplicaci\'on.
+FOTO
 \item Icono planGO: este icono te dirige a la pantalla de Home.
 \item Icono ayuda: este icono te dirige a la pantalla de Ayuda.
+FOTO
 \item Icono flecha: este icono te permite acceder a la pantalla anterior.
 \end{itemize}
 
@@ -758,8 +800,20 @@ cualquiera de las encuestas para acceder al detalle de la misma.
 \subsubsection{Mis amigos}
 \label{sec:mis_amigos}
 
+\begin{figure}[H]
+ \centering
+  \subfloat[Listado]{
+   \label{f:lista}
+    \includegraphics[width=0.3\textwidth]{img/mis_amigos.png}}
+  \subfloat[Buscador]{
+   \label{f:buscar}
+    \includegraphics[width=0.3\textwidth]{img/mis_amigos_buscar.png}}
+ \caption{Pantalla de Mis amigos}
+ \label{f:mis_amigos}
+\end{figure}
+
 Esta pantalla contiene un buscador en la parte superior y un listado, como se puede ver en
-la figura 4.3.
+la figura \ref{f:lista}.
 
 El buscador permite encontrar usuarios, que tengan cuenta en la aplicaci\'on, introduciendo
 su nombre. Este filtro tiene autocompletar, de tal manera que el listado de b\'usqueda se va actualizando
@@ -801,12 +855,166 @@ pulsando en el boton 'Nueva encuesta'.
 Una vez selecionado el tipo de encuesta que se quiere crear, se accede a rellenar los datos
 necesarios para la encuesta como se ve en la figura. El formulario contiene varios campos, los
 cuales algunos son opcionaes y otros no. Los campos requeridos son el t\'itulo y las opciones,
-si esto no se cumple, como se ve en la figura, se mostrara el error.
+si esto no se cumple, como se ve en la figura, se mostrara el error. Dentro de los campos opcionales 
+encontramos que se puede a\'nadir una ubicaci\'on o un comentario. Adem\'as de esto, hay una opci\'on
+que restringe la encuesta a un solo voto por votante.
+
+Una vez completado el primer paso, pasamos al segundo. En este, el usuario tiene que elegir 
+a que amigos enviar la encuesta, de esta manera, estos podr\'an realizar su voto. 
+
+\begin{figure}
+ \centering
+  \subfloat[Listado]{
+   \label{f:nueva2}
+    \includegraphics[width=0.3\textwidth]{img/nueva_2.png}}
+  \subfloat[Invitaciones]{
+   \label{f:nueva21}
+    \includegraphics[width=0.3\textwidth]{img/nueva_21.png}}
+\subfloat[Eliminar]{
+   \label{f:nueva22}
+    \includegraphics[width=0.3\textwidth]{img/nueva_22.png}}
+ \caption{Nueva encuesta: paso 2}
+ \label{f:enviar_encuesta}
+\end{figure}
+
+
+En este paso encontramos un buscador y un listado. El buscador tiene la funcionalidad de facilitar al usuario
+la b\'usqueda de aquellos amigos a los que quiere enviar la encuesta. En el listado aparecen todos los amigos
+con un bot\'on de 'Enviar'. Este bot\'on envia la encuesta al usuario seleccionado. En la figura \ref{f:nueva21} 
+se puede ver el resumen que se genera de todas las invitaciones realizadas. En el caso de querer cancelar
+una invitaci\'on es posible arrastrando sobre el nombre y pulsando en la papelera como se ve en la figura \ref{f:nueva22}. 
+
+Una vez completados estos pasos, en el \'utimo paso tenemos la posibilidad de modificar datos introducidos 
+durante la creaci\'on de la encuesta o modificar las invitaciones a amigos. 
+
+FOTO
+
+\subsubsection{Votaciones pendientes}
+\label{sec:votacion_pendiente}
+
+\begin{figure}[H]
+ \centering
+  \subfloat[Pendientes]{
+   \label{f:pendientes}
+    \includegraphics[width=0.3\textwidth]{img/pendientes.png}}
+  \subfloat[Votaci\'on]{
+   \label{f:votacion}
+    \includegraphics[width=0.3\textwidth]{img/pendientes.png}}
+ \caption{Pantalla de Votaciones pendientes}
+ \label{f:votaciones_pendientes}
+\end{figure}
+
+Esta pantalla contiene dos tabs. Ambas contienen un listado de encuestas, pero estan destinadas a distinta funcionalidad.
+
+En la tab pendientes (figura \ref{f:pendientes}) se encuentran todas las encuestas que el usuario a\'un no ha votado. Para poder
+realizar el voto hay que pulsar encima del t\'itulo de la encuesta. De esta manera se accede al detalle de la encuesta y sus opciones.
+Una vez decidido el voto, se pulsa en 'OSD'.
+
+En la tab editar voto, aparecen las encuestas que ya han sido votadas. Esta pantalla permite modificar un voto ya enviado. Su funcionalidad
+es igual que en el caso de pendientes, al pulsar encima del t\'itulo se accede a la votaci\'on.
 
 
 
-\section{Arquitectura general} 
+
+\subsection{Arquitectura} 
 \label{sec:arquitectura}
+
+La arquitectura general es la de la figura \ref{figura:estructura_ionic} que ya ha sido explicada en el cap\'itulo de introducci\'on en la
+tecnolog\'ia Ionic. Como ya hemos dicho, la parte en la que se lleva a cabo todo el desarrollo es en la carpeta 'src'. Por esto vamos a ver mas detalladamente
+que se encuentra dentro de esta carpeta.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=4cm, keepaspectratio]{img/arq_src.png}
+  \caption{Arquitectura carpeta 'src'}
+  \label{figura:arq_src}
+\end{figure}
+
+
+\subsubsection{app} 
+\label{sec:arquitectura}
+
+En esta carpeta encontramos una carpeta variables y los ficheros que inicializan la aplicaci\'on. 
+
+En la carpeta de variables hay una serie de ficheros que contienen las  variables comunes utilizadas en toda la aplicaci\'on para el dise\'no. De esta manera los colores son iguales,
+ tama\'nos e iconos son comunes en toda la app. Este es un ejemplo de buenas prácticas, si fuera necesario cambiar la apariencia de toda la aplicaci\'on, bastaria con modificar alguna de estas variables.
+
+Con respecto a los ficheros, uno de gran importancia para la aplicaci\'on es el app.module.ts, ya que en él están declarados todos los componentes y servicios que han sido creados. Para reglas de CSS que sean comunes para toda la aplicaci\'on, se utiliza el fichero app.css. 
+Por \'utimo, otro fichero a comentar es el app.component.ts en el que se encuentra la inicializaci\'on de la aplicaci\'on.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=4cm, keepaspectratio]{img/arq_app.png}
+  \caption{Arquitectura carpeta 'app'}
+  \label{figura:arq_app}
+\end{figure}
+
+\subsubsection{assets} 
+\label{sec:assets}
+
+Aqu\'i se encuentran todas las imagenes utilizadas en la aplicaci\'on.
+
+
+\subsubsection{pages} 
+\label{sec:pages}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=4cm, keepaspectratio]{img/arq_help.png}
+  \caption{Carpeta help}
+  \label{figura:arq_help}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=4cm, keepaspectratio]{img/arq_home.png}
+  \caption{Carpeta home}
+  \label{figura:arq_home}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=4cm, keepaspectratio]{img/arq_list.png}
+  \caption{Carpeta list}
+  \label{figura:arq_list}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=4cm, keepaspectratio]{img/arq_login.png}
+  \caption{Carpeta login}
+  \label{figura:arq_login}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=4cm, keepaspectratio]{img/arq_friends.png}
+  \caption{Carpeta my-friends}
+  \label{figura:arq_friends}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=4cm, keepaspectratio]{img/arq_poll.png}
+  \caption{Carpeta newPoll}
+  \label{figura:arq_poll}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=4cm, keepaspectratio]{img/arq_profile.png}
+  \caption{Carpeta profile}
+  \label{figura:arq_profile}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=4cm, keepaspectratio]{img/arq_vote.png}
+  \caption{Carpeta vote}
+  \label{figura:arq_vote}
+\end{figure}
+
 
 
 
