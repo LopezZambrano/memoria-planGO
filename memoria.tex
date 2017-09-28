@@ -20,6 +20,7 @@
 \documentclass[a4paper, 12pt]{book}
 %\usepackage[T1]{fontenc}
 
+\usepackage{wrapfig}
 \usepackage{subfig}
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
 \usepackage{times}
@@ -356,6 +357,27 @@ lo que significa que si el navegador est\'a basado en Javascript, este nunca lle
 c\'odigo original fue realizado con TypeScript y ejecutar\'a el Javascript como lenguaje original.
 
 
+\subsubsection{Ventajas}
+\label{subsec:ventajas}
+
+Las principales ventajas con respecto a JavaScript son:
+
+\begin{itemize}
+  \item Tipado est\'atico: permite mejorar el soporte y la deteccion de errores sin necesidad de arrancar el c\'odigo. Los tipos b\'asicos son: boolean, number, Any y void.
+\item Gen\'ericos: muy útiles para hacer c\'odigo mas reusable, especialmente en listas y Arrays.
+\item Decorators: anotaciones que modifican comportamientos a nivel de clase, propiedad, m\'etodo o par\'ametro.
+
+\end{itemize}
+
+\subsubsection{Compilaci\'on a JavaScript}
+\label{subsec:compilacion}
+
+Para compilar a JavaScript se puede elegir el target al que queremos compilar, es decir, elegir entre ES5 o ES6.
+
+TypeScript nos permite utilizar codigo JavaScript, lo que nos permite aprovechar un c\'odigo ya existente, incluso tiparlo mediante ficheros *.ts para TypeScript.
+
+Tiene la capacidad de concatenar varios ficheros en uno. Tambi\'on ofrece la posibilidad de generar sourcemaps lo cual nos mapea el c\'odigo compilado a ficheros sin compilar para que haga el proceso de debuguear mas sencillo. Por útimo añadir que genera un c\'odigo modular.
+
 \subsection{CSS3}
 \label{subsec:estilo}
 
@@ -409,10 +431,66 @@ La programaci\'on reactiva es un nuevo paradigma orientado a programar basado en
 
 En Angular esto se puede llevar a cabo con la librer\'ia RxJS. Dicha librer\'ia es una enorme cantidad de clases y m\'etodos para poder hacer que toda la programaci\'on que has venido haciendo se pueda manejar de manera reactiva basada en Observables de manera f\'acil.
 
+\item ES6:
+
+Es el est\'andar que sigue JavaScript desde junio de 2015. 
+
+Contiene algunas novedades como: clases e interfaces, variables y constantes, arrow functions, promises, definici\'on de m\'odulos, iteradores, etc.
+
+\item TypeScript:
+
+Como se ha explicado m\'as detalladamente en \ref{subsec:estilo}, TypeScript es m\'as interesante que el uso de JavaScript ya que permite tipado est\'atico, hacer gen\'ericos y decorators.
 
 \end{itemize}
 
+\subsubsection{Funcionalidades}
+\label{subsec:funcion}
 
+\begin{itemize}
+  \item Modularizaci\'on
+
+	La filosofia de Angular empuja hacia que todo sea modular. Se crea una clase, se exporta y ya esta disponible para ser importada en otro componente o en otra parte de la aplicaci\'on y ser reutilizada. La propia libreria de Angular, esta modularizada.
+
+  \item Componentes
+
+Pieza de c\'odigo que controla una parte de la vista. No es nada mas que una clase de ES6 añadiendole un decorator de TypeScript  llamado Component. Esto permite transformar esta clase en un web component con un nombre de selector y una template. La template puede crearse en un fichero aparte para que la organizaci\'on del c\'odigo sea buena.
+
+Una aplicaci\'on as\'i de Angular es un componente, que contiene subcomponentes.
+
+Angular tiene un ciclo de vida para componentes y directivas, como son: ngOnChanges, ngOnInit, ngDoCheck, ngAfterContetInit, ngAfterContentChecked, ngAfterViewInit, etc.
+
+   \item Templates
+
+En esta parte se crean los bloques de la sintagsis de HTML. Acepta todas las tags de HTML5 menos script, no puede embeber c\'odigo JavaScript dentro de la template.
+
+Las etiquetas de HTML se pueden potenciar con las directivas de Angular.
+
+Toda la l\'ogica que se ejecute en el template esta siendo ejecutado en el scope del componente al que pertenece.
+
+\item Bindeo de datos
+
+El bindeo es de una sola direcci\'on. Los distintos tipos de bindeo que existen son del componente hacia el DOM, para mostrar valores en la vista, para pasarselo a otras templates como par\'ametro, y del DOM al componentes, para enviarle los eventos.
+
+\item Inyecci\'on
+
+Usa la inyecci\'on de dependencias para los servicios. Un servicio es una clase de ES6 que contiene un decoratos llamado Injestable. De esta forma esta clase puede ser inyectada en cualquier parte de la aplicaci\'on. Adem\'as es necesario incluirlo como provider de forma que sepa de esta dependencia la aplicaci\'on.
+
+Para inyectar, se hace a través del contructor.
+
+\item Routing
+
+Angular tiene su propio componente de rutas y navegación entre vistas. Es un servicio opcional y no forma parte del core de Angular. 
+
+Interpreta las URL como una instrucción de navegación a un componente o vista. Opcionalmente puede pasar parámetros.
+
+\item Detección de cambios
+
+Angular crea por cada componente un detector de cambios en tiempo de ejecición adaptado a la estructura concreta de cada uno de ellos. Esto permite una gran optimización de dichos detectores de cambios.
+
+Los cambios de propagan a los componentes hij
+
+
+\end{itemize}
 
 
 \subsection{Ionic 2}
@@ -937,9 +1015,9 @@ que se encuentra dentro de esta carpeta.
 En esta carpeta encontramos una carpeta variables y los ficheros que inicializan la aplicaci\'on. 
 
 En la carpeta de variables hay una serie de ficheros que contienen las  variables comunes utilizadas en toda la aplicaci\'on para el dise\'no. De esta manera los colores son iguales,
- tama\'nos e iconos son comunes en toda la app. Este es un ejemplo de buenas prácticas, si fuera necesario cambiar la apariencia de toda la aplicaci\'on, bastaria con modificar alguna de estas variables.
+ tama\'nos e iconos son comunes en toda la app. Este es un ejemplo de buenas pr\'acticas, si fuera necesario cambiar la apariencia de toda la aplicaci\'on, bastaria con modificar alguna de estas variables.
 
-Con respecto a los ficheros, uno de gran importancia para la aplicaci\'on es el app.module.ts, ya que en él están declarados todos los componentes y servicios que han sido creados. Para reglas de CSS que sean comunes para toda la aplicaci\'on, se utiliza el fichero app.css. 
+Con respecto a los ficheros, uno de gran importancia para la aplicaci\'on es el app.module.ts, ya que en \'el est\'an declarados todos los componentes y servicios que han sido creados. Para reglas de CSS que sean comunes para toda la aplicaci\'on, se utiliza el fichero app.css. 
 Por \'utimo, otro fichero a comentar es el app.component.ts en el que se encuentra la inicializaci\'on de la aplicaci\'on.
 
 
@@ -958,6 +1036,7 @@ Aqu\'i se encuentran todas las imagenes utilizadas en la aplicaci\'on.
 
 \subsubsection{pages} 
 \label{sec:pages}
+
 
 \begin{figure}
   \centering
@@ -998,8 +1077,10 @@ Aqu\'i se encuentran todas las imagenes utilizadas en la aplicaci\'on.
   \centering
   \includegraphics[width=4cm, keepaspectratio]{img/arq_poll.png}
   \caption{Carpeta newPoll}
-  \label{figura:arq_poll}
+  \label{figura:arq_friends}
 \end{figure}
+
+
 
 \begin{figure}
   \centering
