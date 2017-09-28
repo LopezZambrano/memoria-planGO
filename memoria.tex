@@ -444,7 +444,7 @@ Como se ha explicado m\'as detalladamente en , TypeScript es m\'as interesante q
 \end{itemize}
 
 \subsubsection{Funcionalidades}
-\label{subsec:estilo}
+\label{subsec:func_angular}
 
 \begin{itemize}
   \item Modularizaci\'on
@@ -487,7 +487,7 @@ Interpreta las URL como una instrucci\'on de navegaci\'on a un componente o vist
 
 Angular crea por cada componente un detector de cambios en tiempo de ejecici\'on adaptado a la estructura concreta de cada uno de ellos. Esto permite una gran optimizaci\'on de dichos detectores de cambios.
 
-Los cambios de propagan a los componentes hij
+
 
 
 \end{itemize}
@@ -655,14 +655,16 @@ y comentando brevemente las tecnolog\'ias y herramientas utilizadas en este proy
 describiendo las necesidades que han llevado a la realizaci\'on de este Trabajo Fin
 de Grado. Esto se presenta en el cap\'itulo 2.
 
-En el cap\'itulo 3 se explica el dise\~no e implementacion del proyecto. De la parte frontend se detalla el mapa 
-de navegac\'ion que contiene la aplicaci\'on, el dise\~no de cada pantalla con su correspondiente funcionalidad y la 
+En el cap\'itulo 3 se explica el dise\~no e implementacion del proyecto. Este capítulo es el más extenso ya que contiene todo 
+el desarrollo del proyecto. De la parte frontend se detalla el mapa de navegac\'ion que contiene la aplicaci\'on, el dise\~no de cada pantalla con su correspondiente funcionalidad y la 
 estructura de proyecto. De la parte backend se describe la estructura de colecciones de la base de datos,
 los controladores utilizados.
 
-.....
+En el capítulo 4 se detalla como se ha llevado un experimento cuya finalidad es conocer la opini\'on de los usuarios sobre la aplicaci\'on, es importante
+que tenga facil usabilidad.
 
-
+Por \'ultimo se cuentan las conclusi\'on obtenidas tras todo el aprendizaje y desarrollo del proyecto, así como trabajos futuros para mejorar ciertas partes
+de la aplicaci\'on.
 
 
 
@@ -729,13 +731,21 @@ El tiempo empleado la finalizaci\'on de este proyecto ha sido de cinco meses nat
 El proyecto ha pasado por varias fases a lo largo del tiempo:
 
 \begin{itemize}
-\item Primer mes: mi dedicaci\'on durantes este tiempo fue a la realizaci\'on de un tutorial sobre Angular, el cual me di\'o una serie de conocimientos para poder empezar la parte visual de la aplicaci\'on. Tras este tutorial, empec\'e a crear las primeras pantallas de la aplicaci\'on.
+\item Primer mes:
 
- \item Segundo mes: este mes fue dedicado a la realizaci\'on de un tutorial destinado a conectar Angular con Meteor para poder desarrollar la parte backend con Meteor. Durante este periodo, debido a una serie de problemas con la realizaci\'on de este tutorial, decid\'i buscar otra alternativa y as\'i poder avanzar en el proyecto. Finalmente la tecnolog\'ia elegida fue Express. Esto me permiti\'o poder realizar las primeras llamadas HTTP desde la parte frontend de la aplicaci\'on.
+ Mi dedicaci\'on durantes este tiempo fue a la realizaci\'on de un tutorial sobre Angular, el cual me di\'o una serie de conocimientos para poder empezar la parte visual de la aplicaci\'on. Tras este tutorial, empec\'e a crear las primeras pantallas de la aplicaci\'on.
 
-\item Tercer y cuarto mes: una vez montada la base de la parte front y la parte back, desarrolle en paralelo ambas partes. Desarrollaba la pantalla y a la par,  creaba los controladores necesarios en Express para que atendiera a las peticiones necesarias en dicha pantalla. Una vez terminado todo el desarrollo, fue importante la parte del testeo de la aplicaci\'on. Durante esta parte se cambiaron funcionalidades de la aplicaci\'on como: poder a\~nadir hora como opci\'on en una encuesta, ordenar alfab\'eticamente los listados, cambio en pantalla de visualizo de votos, etc.
+ \item Segundo mes: 
 
-\item Quinto mes: este ultimo tramo ha sido dedicado a la elaboraci\'on de la memoria y la preparaci\'on de la presentaci\'on. Adem\'as de esto, durante esta etapa, se hizo el experimento de poner a un grupo de personas a usar la aplicaci\'on siguiendo una serie de hitos, para posteriormente contestar unas preguntas.
+Este mes fue dedicado a la realizaci\'on de un tutorial destinado a conectar Angular con Meteor para poder desarrollar la parte backend con Meteor. Durante este periodo, debido a una serie de problemas con la realizaci\'on de este tutorial, decid\'i buscar otra alternativa y as\'i poder avanzar en el proyecto. Finalmente la tecnolog\'ia elegida fue Express. Esto me permiti\'o poder realizar las primeras llamadas HTTP desde la parte frontend de la aplicaci\'on.
+
+\item Tercer y cuarto mes: 
+
+Una vez montada la base de la parte front y la parte back, desarrolle en paralelo ambas partes. Desarrollaba la pantalla y a la par,  creaba los controladores necesarios en Express para que atendiera a las peticiones necesarias en dicha pantalla. Una vez terminado todo el desarrollo, fue importante la parte del testeo de la aplicaci\'on. Durante esta parte se cambiaron funcionalidades de la aplicaci\'on como: poder a\~nadir hora como opci\'on en una encuesta, ordenar alfab\'eticamente los listados, cambio en pantalla de visualizo de votos, etc.
+
+\item Quinto mes: 
+
+Este \'ultimo tramo ha sido dedicado a la elaboraci\'on de la memoria y la preparaci\'on de la presentaci\'on. Adem\'as de esto, durante esta etapa, se hizo el experimento de poner a un grupo de personas a usar la aplicaci\'on siguiendo una serie de hitos, para posteriormente contestar unas preguntas.
 
 \end{itemize}
 
@@ -772,6 +782,14 @@ en cualquier orden.
 Esta aplicaci\'on sigue una estructura combinada entre jer\'arquica y plana. Se usan estructuras
 planas para las p\'aginas de nivel superior que pueden verse en cualquier orden, y estructuras
 jer\'arquicas para las p\'aginas que tienen relaciones m\'as complejas.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=15cm, keepaspectratio]{img/mapa_navegacion.png}
+  \caption{Mapa navegaci\'on}
+  \label{figura:mapa_navegacion}
+\end{figure}
+
 
 \subsection{Funcional}
 \label{sec:funcional}
@@ -845,7 +863,7 @@ Al pulsar alguno de los accesos directos, se produce la navegaci\'on a la pantal
    \label{f:menu}
     \includegraphics[width=0.3\textwidth]{img/header_menu.png}}
   \subfloat[Atr\'as]{
-   \label{f:editar}
+   \label{f:atras}
     \includegraphics[width=0.3\textwidth]{img/header_menu.png}}
  \caption{Header}
  \label{f:header}
@@ -862,7 +880,7 @@ FOTO
 \item Icono flecha: este icono te permite acceder a la pantalla anterior.
 \end{itemize}
 
-Como vemos en la 4.2a y 4.2b el menu lateral y el icono flecha no se muestran a la vez.
+Como vemos en la \ref{f:menu} y \ref{f:atras} el menu lateral y el icono flecha no se muestran a la vez.
 Esto va a depender de la pantalla en la que nos encontremos. Cuando se produce navegaci\'on
 jer\'arquica, aparece el icono atr\'as, para el resto de los casos aparece el icono de men\'u.
 
@@ -998,40 +1016,33 @@ es igual que en el caso de pendientes, al pulsar encima del t\'itulo se accede a
 \label{sec:arquitectura}
 
 La arquitectura general es la de la figura \ref{figura:estructura_ionic} que ya ha sido explicada en el cap\'itulo de introducci\'on en la
-tecnolog\'ia Ionic. Como ya hemos dicho, la parte en la que se lleva a cabo todo el desarrollo es en la carpeta 'src'. Por esto vamos a ver mas detalladamente
-que se encuentra dentro de esta carpeta.
+tecnolog\'ia Ionic. Como ya hemos dicho, la parte en la que se lleva a cabo todo el desarrollo es en la carpeta 'src', por esto es la parte
+en la que voy a entrar en detalle.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=4cm, keepaspectratio]{img/arq_src.png}
-  \caption{Arquitectura carpeta 'src'}
-  \label{figura:arq_src}
-\end{figure}
+Existe una carpeta llamada 'app', en la cual lo más importante es:
 
+\begin{itemize}
+\item Una carpeta que contiene ficheros destinados a la declaraci\'on de variables para ser usadas en toda la aplicaci\'on. Esta serie de variables son utilizadas en los estilos de los componentes.
+Contienen los colores, tama\~nos de letra e iconos. Este es un ejemplo de buenas pr\'acticas, si fuera necesario cambiar la apariencia de toda la aplicaci\'on, bastaria con modificar alguna de estas variables.
 
-\subsubsection{app} 
-\label{sec:arquitectura}
+\item Fichero app.component.ts: contiene la inicializaci\'on de la aplicaci\'on y configuraci\'on para elegir cuál será la pantalla de inicio.
 
-En esta carpeta encontramos una carpeta variables y los ficheros que inicializan la aplicaci\'on. 
+\item Fichero app.module.ts: tiene gran importancia ya que en \'el est\'an declarados todos los componentes y servicios que han sido creados.
 
-En la carpeta de variables hay una serie de ficheros que contienen las  variables comunes utilizadas en toda la aplicaci\'on para el dise\~no. De esta manera los colores son iguales,
- tama\~nos e iconos son comunes en toda la app. Este es un ejemplo de buenas pr\'acticas, si fuera necesario cambiar la apariencia de toda la aplicaci\'on, bastaria con modificar alguna de estas variables.
+\item Fichero app.css: contiene reglas de CSS que se aplican a todos los componentes.
 
-Con respecto a los ficheros, uno de gran importancia para la aplicaci\'on es el app.module.ts, ya que en \'el est\'an declarados todos los componentes y servicios que han sido creados. Para reglas de CSS que sean comunes para toda la aplicaci\'on, se utiliza el fichero app.css. 
-Por \'utimo, otro fichero a comentar es el app.component.ts en el que se encuentra la inicializaci\'on de la aplicaci\'on.
+\end{itemize}
 
 
-\begin{figure}
-  \centering
-  \includegraphics[width=4cm, keepaspectratio]{img/arq_app.png}
-  \caption{Arquitectura carpeta 'app'}
-  \label{figura:arq_app}
-\end{figure}
+En la carpeta 'pages' es donde se encuentran todos los componentes creados. Como se ha visto en el punto \ref{subsec:func_angular}, Angular esta basado en componentes, que ha su vez
+pueden contener otros componentes. De esta manera la arquitectura conseguida es más estructurada. Hay pantallas que solo contienen un componente y otras que estan formadas por varios.
 
-\subsubsection{assets} 
-\label{sec:assets}
 
-Aqu\'i se encuentran todas las imagenes utilizadas en la aplicaci\'on.
+
+
+
+
+
 
 
 \subsubsection{pages} 
