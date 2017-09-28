@@ -20,7 +20,7 @@
 \documentclass[a4paper, 12pt]{book}
 %\usepackage[T1]{fontenc}
 
-\usepackage{wrapfig}
+
 \usepackage{subfig}
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
 \usepackage{times}
@@ -364,7 +364,7 @@ Las principales ventajas con respecto a JavaScript son:
 
 \begin{itemize}
   \item Tipado est\'atico: permite mejorar el soporte y la deteccion de errores sin necesidad de arrancar el c\'odigo. Los tipos b\'asicos son: boolean, number, Any y void.
-\item Gen\'ericos: muy útiles para hacer c\'odigo mas reusable, especialmente en listas y Arrays.
+\item Gen\'ericos: muy \'utiles para hacer c\'odigo mas reusable, especialmente en listas y Arrays.
 \item Decorators: anotaciones que modifican comportamientos a nivel de clase, propiedad, m\'etodo o par\'ametro.
 
 \end{itemize}
@@ -376,7 +376,7 @@ Para compilar a JavaScript se puede elegir el target al que queremos compilar, e
 
 TypeScript nos permite utilizar codigo JavaScript, lo que nos permite aprovechar un c\'odigo ya existente, incluso tiparlo mediante ficheros *.ts para TypeScript.
 
-Tiene la capacidad de concatenar varios ficheros en uno. Tambi\'on ofrece la posibilidad de generar sourcemaps lo cual nos mapea el c\'odigo compilado a ficheros sin compilar para que haga el proceso de debuguear mas sencillo. Por útimo añadir que genera un c\'odigo modular.
+Tiene la capacidad de concatenar varios ficheros en uno. Tambi\'on ofrece la posibilidad de generar sourcemaps lo cual nos mapea el c\'odigo compilado a ficheros sin compilar para que haga el proceso de debuguear mas sencillo. Por \'utimo a\~nadir que genera un c\'odigo modular.
 
 \subsection{CSS3}
 \label{subsec:estilo}
@@ -439,12 +439,12 @@ Contiene algunas novedades como: clases e interfaces, variables y constantes, ar
 
 \item TypeScript:
 
-Como se ha explicado m\'as detalladamente en \ref{subsec:estilo}, TypeScript es m\'as interesante que el uso de JavaScript ya que permite tipado est\'atico, hacer gen\'ericos y decorators.
+Como se ha explicado m\'as detalladamente en , TypeScript es m\'as interesante que el uso de JavaScript ya que permite tipado est\'atico, hacer gen\'ericos y decorators.
 
 \end{itemize}
 
 \subsubsection{Funcionalidades}
-\label{subsec:funcion}
+\label{subsec:estilo}
 
 \begin{itemize}
   \item Modularizaci\'on
@@ -453,7 +453,7 @@ Como se ha explicado m\'as detalladamente en \ref{subsec:estilo}, TypeScript es 
 
   \item Componentes
 
-Pieza de c\'odigo que controla una parte de la vista. No es nada mas que una clase de ES6 añadiendole un decorator de TypeScript  llamado Component. Esto permite transformar esta clase en un web component con un nombre de selector y una template. La template puede crearse en un fichero aparte para que la organizaci\'on del c\'odigo sea buena.
+Pieza de c\'odigo que controla una parte de la vista. No es nada mas que una clase de ES6 a\~nadiendole un decorator de TypeScript  llamado Component. Esto permite transformar esta clase en un web component con un nombre de selector y una template. La template puede crearse en un fichero aparte para que la organizaci\'on del c\'odigo sea buena.
 
 Una aplicaci\'on as\'i de Angular es un componente, que contiene subcomponentes.
 
@@ -475,17 +475,17 @@ El bindeo es de una sola direcci\'on. Los distintos tipos de bindeo que existen 
 
 Usa la inyecci\'on de dependencias para los servicios. Un servicio es una clase de ES6 que contiene un decoratos llamado Injestable. De esta forma esta clase puede ser inyectada en cualquier parte de la aplicaci\'on. Adem\'as es necesario incluirlo como provider de forma que sepa de esta dependencia la aplicaci\'on.
 
-Para inyectar, se hace a través del contructor.
+Para inyectar, se hace a trav\'es del contructor.
 
 \item Routing
 
-Angular tiene su propio componente de rutas y navegación entre vistas. Es un servicio opcional y no forma parte del core de Angular. 
+Angular tiene su propio componente de rutas y navegaci\'on entre vistas. Es un servicio opcional y no forma parte del core de Angular. 
 
-Interpreta las URL como una instrucción de navegación a un componente o vista. Opcionalmente puede pasar parámetros.
+Interpreta las URL como una instrucci\'on de navegaci\'on a un componente o vista. Opcionalmente puede pasar par\'ametros.
 
-\item Detección de cambios
+\item Detecci\'on de cambios
 
-Angular crea por cada componente un detector de cambios en tiempo de ejecición adaptado a la estructura concreta de cada uno de ellos. Esto permite una gran optimización de dichos detectores de cambios.
+Angular crea por cada componente un detector de cambios en tiempo de ejecici\'on adaptado a la estructura concreta de cada uno de ellos. Esto permite una gran optimizaci\'on de dichos detectores de cambios.
 
 Los cambios de propagan a los componentes hij
 
@@ -655,8 +655,8 @@ y comentando brevemente las tecnolog\'ias y herramientas utilizadas en este proy
 describiendo las necesidades que han llevado a la realizaci\'on de este Trabajo Fin
 de Grado. Esto se presenta en el cap\'itulo 2.
 
-En el cap\'itulo 3 se explica el dise\'no e implementacion del proyecto. De la parte frontend se detalla el mapa 
-de navegac\'ion que contiene la aplicaci\'on, el dise\'no de cada pantalla con su correspondiente funcionalidad y la 
+En el cap\'itulo 3 se explica el dise\~no e implementacion del proyecto. De la parte frontend se detalla el mapa 
+de navegac\'ion que contiene la aplicaci\'on, el dise\~no de cada pantalla con su correspondiente funcionalidad y la 
 estructura de proyecto. De la parte backend se describe la estructura de colecciones de la base de datos,
 los controladores utilizados.
 
@@ -690,16 +690,16 @@ hora de organizar eventos o reuniones, adem\'as de realizar encuestas de todo ti
 \label{sec:objetivos-especificos}
 
 \begin{itemize}
- \item Controlar los formatos introducidos al registrarse, de tal manera que no pueda introducirse un email con formato no v\'alido ni una contrase\'na con menos de 6 caracteres.
+ \item Controlar los formatos introducidos al registrarse, de tal manera que no pueda introducirse un email con formato no v\'alido ni una contrase\~na con menos de 6 caracteres.
  \item Visi\'on global del usuario en cuanto a todas las encuestas que ha creado y poder visualizar los votos de esta.
  \item Permitir elegir el tipo de encuesta que se quiere crear. Esta elecci\'on sera entre encuesta de tipo fecha o de tipo texto.
- \item Dar opci\'on al usuario de a\'nadir hora y fecha o solo una fecha, en el caso de encuesta de tipo fecha.
+ \item Dar opci\'on al usuario de a\~nadir hora y fecha o solo una fecha, en el caso de encuesta de tipo fecha.
  \item Al crear una encuesta poder elegir si se permite votar multiples \'opciones o se restringe a una sola votaci\'on por persona.
  \item Validar los campos introducidos al crear una encuesta. Los campos obligatorios son el t\'itulo y las opciones.
- \item Como datos opcionales, poder a\'nadir a la encuesta la ubicaci\'on del evento o alg\'un comentario.
+ \item Como datos opcionales, poder a\~nadir a la encuesta la ubicaci\'on del evento o alg\'un comentario.
  \item Un usuario s\'olo podr\'a enviar la encuesta creada a aquellos usuarios que est\'en en su lista de amigos
  \item Tr\'as realizar la votaci\'on de una encuesta, es posible modificar el voto.
- \item Un usuario puede cambiar sus datos personales de la cuenta, que son el nombre de usuario y contrase\'na.
+ \item Un usuario puede cambiar sus datos personales de la cuenta, que son el nombre de usuario y contrase\~na.
 \item Para facilitar la b\'usqueda de amigos, el usuario no deber\'a introducir el nombre concreto en el buscador, se hace una b\'usqueda de todos los nombres que contengan los caracteres introducidos.
 \end{itemize}
 
@@ -711,8 +711,8 @@ hora de organizar eventos o reuniones, adem\'as de realizar encuestas de todo ti
 
 \begin{itemize}
  \item S\'olo puede haber un nombre de usuario y email registrado en la aplicaci\'on.
- \item Encriptar las contrase\'nas que se han registrado y as\'i guardarlas en la base de datos.
- \item Permitir el cambio de nombre de usuario o contrase\'na, siempre que el usuario introduzca una contrase\'na v\'alida.
+ \item Encriptar las contrase\~nas que se han registrado y as\'i guardarlas en la base de datos.
+ \item Permitir el cambio de nombre de usuario o contrase\~na, siempre que el usuario introduzca una contrase\~na v\'alida.
  \item Permitir borrar una cuenta.
  
  
@@ -733,7 +733,7 @@ El proyecto ha pasado por varias fases a lo largo del tiempo:
 
  \item Segundo mes: este mes fue dedicado a la realizaci\'on de un tutorial destinado a conectar Angular con Meteor para poder desarrollar la parte backend con Meteor. Durante este periodo, debido a una serie de problemas con la realizaci\'on de este tutorial, decid\'i buscar otra alternativa y as\'i poder avanzar en el proyecto. Finalmente la tecnolog\'ia elegida fue Express. Esto me permiti\'o poder realizar las primeras llamadas HTTP desde la parte frontend de la aplicaci\'on.
 
-\item Tercer y cuarto mes: una vez montada la base de la parte front y la parte back, desarrolle en paralelo ambas partes. Desarrollaba la pantalla y a la par,  creaba los controladores necesarios en Express para que atendiera a las peticiones necesarias en dicha pantalla. Una vez terminado todo el desarrollo, fue importante la parte del testeo de la aplicaci\'on. Durante esta parte se cambiaron funcionalidades de la aplicaci\'on como: poder a\'nadir hora como opci\'on en una encuesta, ordenar alfab\'eticamente los listados, cambio en pantalla de visualizo de votos, etc.
+\item Tercer y cuarto mes: una vez montada la base de la parte front y la parte back, desarrolle en paralelo ambas partes. Desarrollaba la pantalla y a la par,  creaba los controladores necesarios en Express para que atendiera a las peticiones necesarias en dicha pantalla. Una vez terminado todo el desarrollo, fue importante la parte del testeo de la aplicaci\'on. Durante esta parte se cambiaron funcionalidades de la aplicaci\'on como: poder a\~nadir hora como opci\'on en una encuesta, ordenar alfab\'eticamente los listados, cambio en pantalla de visualizo de votos, etc.
 
 \item Quinto mes: este ultimo tramo ha sido dedicado a la elaboraci\'on de la memoria y la preparaci\'on de la presentaci\'on. Adem\'as de esto, durante esta etapa, se hizo el experimento de poner a un grupo de personas a usar la aplicaci\'on siguiendo una serie de hitos, para posteriormente contestar unas preguntas.
 
@@ -750,7 +750,7 @@ El proyecto ha pasado por varias fases a lo largo del tiempo:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cleardoublepage
-\chapter{Dise\'no e implementaci\'on}
+\chapter{Dise\~no e implementaci\'on}
 
 \section{Frontend}
 \label{sec:frontend}
@@ -792,12 +792,12 @@ jer\'arquicas para las p\'aginas que tienen relaciones m\'as complejas.
 \end{figure}
 
 En la pantalla de login podemos encontrar dos inputs para poder introducir el correo y la
-contrase\'na. De esta forma se puede comprobar si el usuario tiene cuenta en la aplicaci\'on y
+contrase\~na. De esta forma se puede comprobar si el usuario tiene cuenta en la aplicaci\'on y
 adem\'as se identifica al usuario que est\'a usando la aplicaci\'on.
 
 Se trata de un formulario reactivo, esto permite que los valores no tienen que ser recuperados
 de un servidor, se pueden validar de forma inmediata. Ambos son campos requeridos por lo que
-se comprueba que han sido introducidos, y en el caso de la contrase\'na que contenga m\'inimo 6
+se comprueba que han sido introducidos, y en el caso de la contrase\~na que contenga m\'inimo 6
 caracteres. Para el caso del email, se comprueba que sea un formato valido.
 
 Tambi\'en encontramos un enlace para que aquellos usuarios que a\'un no han utilizado esta
@@ -819,7 +819,7 @@ con sus correspondientes validaciones. Estas no se comprueban hasta que no se pu
 este nombre.
 \item Email: se comprueba que sea un formato valido y, adem\'as, mediante una petici\'on al
 servidor, que no est\'e ya registrado.
-\item Contrase\'na: se comprueba que no contenga menos de 6 caracteres.
+\item Contrase\~na: se comprueba que no contenga menos de 6 caracteres.
 
 \end{itemize}
 
@@ -830,7 +830,7 @@ usuario, lo mas importante es identificar quien esta votando y a quien va dirigi
 \label{sec:home}
 
 En esta pantalla se encuentran accesos directos a distintas partes de la aplicaci\'on. El usuario
-puede acceder a las encuestas que ha creado, crear una nueva encuesta, consultar y a\'nadir a sus
+puede acceder a las encuestas que ha creado, crear una nueva encuesta, consultar y a\~nadir a sus
 amigos y acceder a las votaciones.
 
 Al pulsar alguno de los accesos directos, se produce la navegaci\'on a la pantalla que corresponde.
@@ -842,7 +842,7 @@ Al pulsar alguno de los accesos directos, se produce la navegaci\'on a la pantal
 \begin{figure}[H]
  \centering
   \subfloat[Men\'u]{
-   \label{f:pendientes}
+   \label{f:menu}
     \includegraphics[width=0.3\textwidth]{img/header_menu.png}}
   \subfloat[Atr\'as]{
    \label{f:editar}
@@ -900,8 +900,8 @@ pues no tiene porque saber el nombre exacto del usuario que quiere buscar. Solo 
 usuarios que a\'un no tiene en su lista de amigos. En el caso de querer cerrar esta b\'usqueda,
 existe un bot\'on con forma de flecha, para volver al estado anterior.
 
-Para a\'nadir un nuevo amigo, tras haber realizado su b\'usqueda, hay que pulsar en el bot\'on
-'a\'nadir'.
+Para a\~nadir un nuevo amigo, tras haber realizado su b\'usqueda, hay que pulsar en el bot\'on
+'a\~nadir'.
 
 En el listado se ven todos los usuarios que contiene en su lista de amigos.
 
@@ -913,7 +913,7 @@ Esta pantalla contiene dos desplegables, cada uno de los cuales esta destinado a
 diferente. Es una pantalla bastante intuitiva como se ve en la fig.
 
 En el desplegable 'Cambiar Username' el usuario podr\'a cambiar el nombre con el que esta
-identificado en la aplicaci\'on. En el caso del desplegable 'Cambiar contrase\'na' el usuario podr\'a
+identificado en la aplicaci\'on. En el caso del desplegable 'Cambiar contrase\~na' el usuario podr\'a
 cambiar su contrase´na actual.
 
 Para todos los cambios que se realicen en el perfil del usuario, por seguridad, es necesario
@@ -934,7 +934,7 @@ Una vez selecionado el tipo de encuesta que se quiere crear, se accede a rellena
 necesarios para la encuesta como se ve en la figura. El formulario contiene varios campos, los
 cuales algunos son opcionaes y otros no. Los campos requeridos son el t\'itulo y las opciones,
 si esto no se cumple, como se ve en la figura, se mostrara el error. Dentro de los campos opcionales 
-encontramos que se puede a\'nadir una ubicaci\'on o un comentario. Adem\'as de esto, hay una opci\'on
+encontramos que se puede a\~nadir una ubicaci\'on o un comentario. Adem\'as de esto, hay una opci\'on
 que restringe la encuesta a un solo voto por votante.
 
 Una vez completado el primer paso, pasamos al segundo. En este, el usuario tiene que elegir 
@@ -1014,8 +1014,8 @@ que se encuentra dentro de esta carpeta.
 
 En esta carpeta encontramos una carpeta variables y los ficheros que inicializan la aplicaci\'on. 
 
-En la carpeta de variables hay una serie de ficheros que contienen las  variables comunes utilizadas en toda la aplicaci\'on para el dise\'no. De esta manera los colores son iguales,
- tama\'nos e iconos son comunes en toda la app. Este es un ejemplo de buenas pr\'acticas, si fuera necesario cambiar la apariencia de toda la aplicaci\'on, bastaria con modificar alguna de estas variables.
+En la carpeta de variables hay una serie de ficheros que contienen las  variables comunes utilizadas en toda la aplicaci\'on para el dise\~no. De esta manera los colores son iguales,
+ tama\~nos e iconos son comunes en toda la app. Este es un ejemplo de buenas pr\'acticas, si fuera necesario cambiar la apariencia de toda la aplicaci\'on, bastaria con modificar alguna de estas variables.
 
 Con respecto a los ficheros, uno de gran importancia para la aplicaci\'on es el app.module.ts, ya que en \'el est\'an declarados todos los componentes y servicios que han sido creados. Para reglas de CSS que sean comunes para toda la aplicaci\'on, se utiliza el fichero app.css. 
 Por \'utimo, otro fichero a comentar es el app.component.ts en el que se encuentra la inicializaci\'on de la aplicaci\'on.
