@@ -221,7 +221,7 @@ aplicaciones muy potentes que nos facilitan la vida. Un claro ejemplo es el pode
 cuentas del banco e incluso realizar operaciones desde cualquier lugar. Existen aplicaciones
 para todos los gustos, necesidades e intereses.
 
-Encontrar un d\'ia y una hora para quedar entre varias personas nunca ha sido f\'acil. Gracias a Internet y a las nuevas tecnolog\'ias ya no habr\'a excusas. Existen en la red unas herramientas web llamadas planificadores online que nos permiten encontrar las mejores fechas y horas para organizar una cita, ya sea f\'isica o virtual.
+Encontrar un d\'ia y una hora para quedar entre varias personas nunca ha sido f\'acil. Gracias a Internet y a las nuevas tecnolog\'ias ya no hay excusas. Existen en la red unas herramientas web llamadas planificadores online que nos permiten encontrar las mejores fechas y horas para organizar una cita, ya sea f\'isica o virtual.
 
 \section{Historia de la web}
 \label{sec:seccion}
@@ -279,7 +279,7 @@ Pero esta no es la \'unica aplicaci\'on que existe para el tema de la planificac
 \end{itemize}
 
 
-\section{Tecnolo\'ias}
+\section{Tecnolog\'ias}
 \label{sec:seccion}
 
 
@@ -552,6 +552,19 @@ Un proyecto con Ionic contiene una lista de capetas y archivos. Cada parte tiene
 
 \end{itemize}
 
+\subsection{HTTP}
+\label{subsec:estilo}
+
+El http son las siglas de 'Hypertext Transfer Protocol0 es un protocolo de transferencia donde se utiliza un sistema mediante el cual se permite la transferencia de informaci\'on entre diferentes servicios y los clientes que utilizan p\'aginas web.
+
+Este protocolo opera por petici\'on y respuesta entre el cliente y el servidor. A menudo las peticiones tienen que ver con archivos, ejecuci\'on de un programa, consulta a una base de datos, traducci\'on y otras funcionalidades. Toda la informaci\'on que opera en la Web mediante este protocolo es identificada mediante el URL o direcci\'on.
+
+La t\'ipica transacci\'on de protocolo HTTP se compone de un encabezado seguido por una l\'inea en blanco y luego un dato. Este encabezado define la acci\'on requerida por el servidor.
+
+Una solicitud HTTP es un conjunto de l\'ineas que el navegador env\'ia al servidor. Contiene una l\'inea de solicitud que especifica el tipo de documento solicitado, el m\'etodo que se aplicar\'a y la versi\'on del protocolo utilizada. La l\'inea est\'a formada por tres elementos que deben estar separados por un espacio: el m\'etodo, la direcci\'on URL y la versi\'on del protocolo utilizada por el cliente. Tambien contiene los campos del encabezado de solicitud y el cuerpo de la solicitud.
+
+
+
 \subsection{Node.js}
 \label{subsec:estilo}
 
@@ -655,15 +668,15 @@ y comentando brevemente las tecnolog\'ias y herramientas utilizadas en este proy
 describiendo las necesidades que han llevado a la realizaci\'on de este Trabajo Fin
 de Grado. Esto se presenta en el cap\'itulo 2.
 
-En el cap\'itulo 3 se explica el dise\~no e implementacion del proyecto. Este capítulo es el más extenso ya que contiene todo 
+En el cap\'itulo 3 se explica el dise\~no e implementacion del proyecto. Este cap\'itulo es el m\'os extenso ya que contiene todo 
 el desarrollo del proyecto. De la parte frontend se detalla el mapa de navegac\'ion que contiene la aplicaci\'on, el dise\~no de cada pantalla con su correspondiente funcionalidad y la 
 estructura de proyecto. De la parte backend se describe la estructura de colecciones de la base de datos,
 los controladores utilizados.
 
-En el capítulo 4 se detalla como se ha llevado un experimento cuya finalidad es conocer la opini\'on de los usuarios sobre la aplicaci\'on, es importante
+En el cap\'itulo 4 se detalla como se ha llevado un experimento cuya finalidad es conocer la opini\'on de los usuarios sobre la aplicaci\'on, es importante
 que tenga facil usabilidad.
 
-Por \'ultimo se cuentan las conclusi\'on obtenidas tras todo el aprendizaje y desarrollo del proyecto, así como trabajos futuros para mejorar ciertas partes
+Por \'ultimo se cuentan las conclusi\'on obtenidas tras todo el aprendizaje y desarrollo del proyecto, as\'i como trabajos futuros para mejorar ciertas partes
 de la aplicaci\'on.
 
 
@@ -828,6 +841,31 @@ validaci\'on del formato de email y se manda una petici\'on al servidor.
 \subsubsection{Registro}
 \label{sec:registro}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{img/register.png}
+  \caption{Pantalla de Registro}
+  \label{figura:register}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+  \subfloat[Nombre]{
+   \label{f:error_name}
+    \includegraphics[width=0.3\textwidth]{img/error_name.png}}
+  \subfloat[Email]{
+   \label{f:error_email}
+    \includegraphics[width=0.3\textwidth]{img/error_email.png}}\\
+  \subfloat[Contrase\~na]{
+   \label{f:error_pass}
+    \includegraphics[width=0.3\textwidth]{img/error_pass.png}}
+  \subfloat[Contrase\~na no coincide]{
+   \label{f:error_pass}
+    \includegraphics[width=0.3\textwidth]{img/error_pass2.png}}
+ \caption{Errores pantalla de Registro}
+ \label{f:animales}
+\end{figure}
+
 Contiene un formulario para los datos personales del usuario. Es un formulario reactivo
 con sus correspondientes validaciones. Estas no se comprueban hasta que no se pulsa el bot\'on
 'Registrate'.
@@ -847,6 +885,13 @@ usuario, lo mas importante es identificar quien esta votando y a quien va dirigi
 \subsubsection{Home}
 \label{sec:home}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{img/home.png}
+  \caption{Pantalla de Home}
+  \label{figura:home}
+\end{figure}
+
 En esta pantalla se encuentran accesos directos a distintas partes de la aplicaci\'on. El usuario
 puede acceder a las encuestas que ha creado, crear una nueva encuesta, consultar y a\~nadir a sus
 amigos y acceder a las votaciones.
@@ -864,7 +909,7 @@ Al pulsar alguno de los accesos directos, se produce la navegaci\'on a la pantal
     \includegraphics[width=0.3\textwidth]{img/header_menu.png}}
   \subfloat[Atr\'as]{
    \label{f:atras}
-    \includegraphics[width=0.3\textwidth]{img/header_menu.png}}
+    \includegraphics[width=0.3\textwidth]{img/header_atras.png}}
  \caption{Header}
  \label{f:header}
 \end{figure}
@@ -873,16 +918,27 @@ El header cuenta con 4 botones:
 
 \begin{itemize}
 \item Men\'u latera: nos permite acceder a cualquier parte de la aplicaci\'on.
-FOTO
+
 \item Icono planGO: este icono te dirige a la pantalla de Home.
 \item Icono ayuda: este icono te dirige a la pantalla de Ayuda.
-FOTO
 \item Icono flecha: este icono te permite acceder a la pantalla anterior.
 \end{itemize}
 
-Como vemos en la \ref{f:menu} y \ref{f:atras} el menu lateral y el icono flecha no se muestran a la vez.
+Como vemos en las figuras \ref{f:menu} y \ref{f:atras} el menu lateral y el icono flecha no se muestran a la vez.
 Esto va a depender de la pantalla en la que nos encontremos. Cuando se produce navegaci\'on
 jer\'arquica, aparece el icono atr\'as, para el resto de los casos aparece el icono de men\'u.
+
+\begin{figure}[H]
+ \centering
+  \subfloat[Men\'u]{
+   \label{f:menu}
+    \includegraphics[width=0.3\textwidth]{img/menu.png}}
+  \subfloat[Ayuda]{
+   \label{f:atras}
+    \includegraphics[width=0.3\textwidth]{img/help.png}}
+ \caption{Pantalla de Men\'u y Ayuda}
+ \label{f:header}
+\end{figure}
 
 
 \subsubsection{Mis encuestas}
@@ -890,7 +946,17 @@ jer\'arquica, aparece el icono atr\'as, para el resto de los casos aparece el ic
 
 En esta pantalla el usuasio tiene acceso a todas las encuestas que han sido creadas por \'el.
 Como vemos en la figura, aparece un listado con todas las encuestas. Es posible hacer click en
-cualquiera de las encuestas para acceder al detalle de la misma.
+cualquiera de las encuestas para acceder a los votos que ha obtenido.
+
+Si no hay votos para la encuesta seleccionada, se mostrara un mensaje de aviso. En caso de que haya
+votaciones, la pantalla mostrada varia en funci\'on si es de tipo texto o de tipo fecha.
+
+Cuando la encuesta es de tipo texto, se muestra una tabla con las opciones que tiene disponibles la encuesta
+y un recuento de votos por usuario. Cuando la encuesta es de tipo fecha, aparece un calendario con los d\'ias
+que existen como opci\'on remarcados. Estos d\'ias se pueden pulsar, para que aparezca el detalle de las horas
+a elegir, en caso de que las haya. Despu\'es hay una tabla igual que la descrita anteriormente para tipo texto.
+
+
 
 
 \subsubsection{Mis amigos}
@@ -927,6 +993,18 @@ En el listado se ven todos los usuarios que contiene en su lista de amigos.
 \subsubsection{Perfil}
 \label{sec:perfil}
 
+\begin{figure}[H]
+ \centering
+  \subfloat[Cambio nombre]{
+   \label{f:nombre}
+    \includegraphics[width=0.3\textwidth]{img/perfil1.png}}
+  \subfloat[Cambio contrase\~na]{
+   \label{f:contrase\~na}
+    \includegraphics[width=0.3\textwidth]{img/perfil2.png}}
+ \caption{Pantalla de Perfil}
+ \label{f:perfil}
+\end{figure}
+
 Esta pantalla contiene dos desplegables, cada uno de los cuales esta destinado a una funci\'on
 diferente. Es una pantalla bastante intuitiva como se ve en la fig.
 
@@ -955,6 +1033,20 @@ si esto no se cumple, como se ve en la figura, se mostrara el error. Dentro de l
 encontramos que se puede a\~nadir una ubicaci\'on o un comentario. Adem\'as de esto, hay una opci\'on
 que restringe la encuesta a un solo voto por votante.
 
+\begin{figure}[H]
+ \centering
+  \subfloat[Tipo texto]{
+   \label{f:t_texto}
+    \includegraphics[width=0.3\textwidth]{img/texto.png}}
+  \subfloat[Tipo fecha]{
+   \label{f:fecha}
+    \includegraphics[width=0.3\textwidth]{img/fecha.png}}
+ \caption{Pantalla de Nueva encuesta: paso 1}
+ \label{f:poll}
+\end{figure}
+
+
+
 Una vez completado el primer paso, pasamos al segundo. En este, el usuario tiene que elegir 
 a que amigos enviar la encuesta, de esta manera, estos podr\'an realizar su voto. 
 
@@ -969,7 +1061,7 @@ a que amigos enviar la encuesta, de esta manera, estos podr\'an realizar su voto
 \subfloat[Eliminar]{
    \label{f:nueva22}
     \includegraphics[width=0.3\textwidth]{img/nueva_22.png}}
- \caption{Nueva encuesta: paso 2}
+ \caption{Pantalla de Nueva encuesta: paso 2}
  \label{f:enviar_encuesta}
 \end{figure}
 
@@ -983,7 +1075,6 @@ una invitaci\'on es posible arrastrando sobre el nombre y pulsando en la papeler
 Una vez completados estos pasos, en el \'utimo paso tenemos la posibilidad de modificar datos introducidos 
 durante la creaci\'on de la encuesta o modificar las invitaciones a amigos. 
 
-FOTO
 
 \subsubsection{Votaciones pendientes}
 \label{sec:votacion_pendiente}
@@ -1019,13 +1110,16 @@ La arquitectura general es la de la figura \ref{figura:estructura_ionic} que ya 
 tecnolog\'ia Ionic. Como ya hemos dicho, la parte en la que se lleva a cabo todo el desarrollo es en la carpeta 'src', por esto es la parte
 en la que voy a entrar en detalle.
 
-Existe una carpeta llamada 'app', en la cual lo más importante es:
+\subsubsection{App} 
+\label{sec:app}
+
+Existe una carpeta llamada 'app', en la cual lo m\'os importante es:
 
 \begin{itemize}
 \item Una carpeta que contiene ficheros destinados a la declaraci\'on de variables para ser usadas en toda la aplicaci\'on. Esta serie de variables son utilizadas en los estilos de los componentes.
 Contienen los colores, tama\~nos de letra e iconos. Este es un ejemplo de buenas pr\'acticas, si fuera necesario cambiar la apariencia de toda la aplicaci\'on, bastaria con modificar alguna de estas variables.
 
-\item Fichero app.component.ts: contiene la inicializaci\'on de la aplicaci\'on y configuraci\'on para elegir cuál será la pantalla de inicio.
+\item Fichero app.component.ts: contiene la inicializaci\'on de la aplicaci\'on y configuraci\'on para elegir cu\'al ser\'a la pantalla de inicio.
 
 \item Fichero app.module.ts: tiene gran importancia ya que en \'el est\'an declarados todos los componentes y servicios que han sido creados.
 
@@ -1033,23 +1127,127 @@ Contienen los colores, tama\~nos de letra e iconos. Este es un ejemplo de buenas
 
 \end{itemize}
 
+\subsubsection{Pages} 
+\label{sec:pages}
 
 En la carpeta 'pages' es donde se encuentran todos los componentes creados. Como se ha visto en el punto \ref{subsec:func_angular}, Angular esta basado en componentes, que ha su vez
-pueden contener otros componentes. De esta manera la arquitectura conseguida es más estructurada. Hay pantallas que solo contienen un componente y otras que estan formadas por varios.
+pueden contener otros componentes. De esta manera la arquitectura conseguida es m\'as estructurada. 
 
-Cada componente esta formado por tres ficheros: el typescript donde está la l\'ogica, el html donde está a vista y el css que modifica la vista.
+Cada componente esta formado por tres ficheros: el typescript donde est\'a la l\'ogica, el html donde est\'a la vista y el css que modifica la vista.
 
-En este proyecto, hay seis pantallas que están formadas únicamente por un componente y el componente header, y cuatro pantallas contienen más. 
-
+En este proyecto, hay pantallas que est\'an formadas \'unicamente por un componente y otras que contienen m\'as. En
+la figura \ref{figura:arq_comp}, de forma esquem\'atica, podemos ver que componentes forman cada una de las pantallas. La pantalla de login es la \'unica que realmente contiene un \'unico componente, en cambio Registro, Home y Perfil aparte de su propio componente, est\'an formados por el componente com\'un Header.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=15cm, keepaspectratio]{img/arq_comp.png}
+  \includegraphics[width=14cm, keepaspectratio]{img/arq_comp.png}
   \caption{Estructura componentes}
   \label{figura:arq_comp}
 \end{figure}
 
 
+\subsubsection{Shared} 
+\label{sec:shared}
+
+Esta carpeta ha sido creada para todos los servicios de la aplicaci\'on, componentes comunes y modelos de datos. Los servicios son 
+los encargados de hacer la l\'ogica de negocio, asi como las peticiones al servidor. Los modelos son intefaces que definen que atributos
+contiene un objeto, de esta forma se protege el c\'odigo contra posibles fallos por mal tipado.
+
+\begin{itemize}
+\item Los componentes comunes y por lo tanto, que han sido reusados son el header, el men\'u y el calendario. En el caso del calendario, no es un componente com\'un como tal, ya que solo es utilizado en una pantalla, pero he considerado que debe estar en esta carpeta por estar totalmente preparado para ser rehusado.
+\item Los modelos son: friend, poll, user y vote. Es una forma de asegurarnos que las variables que creamos contienen exclusivamente lo que esta declarado en el modelo. Esta es la gran ventaja que tiene TypeScript como ya se ha comentado.
+
+\item Existe un servicio para las peticiones al servidos de cada una de las pantallas. Adem\'as, hay un servicio que contiene toda la l\'ogica de como realizar peticiones HTTP de tipo GET, PUT y POST. Esto facilita que en cada servicio solo sea necesario importar este servicio y despu\'es usarlo para las distintas peticiones que se necesitan.
+\end{itemize}
+
+\begin{figure}[H]
+ \centering
+  \subfloat[Friend]{
+   \label{f:friend}
+    \includegraphics[width=0.3\textwidth]{img/mod_friend.png}}
+  \subfloat[Poll]{
+   \label{f:poll}
+    \includegraphics[width=0.3\textwidth]{img/mod_poll.png}} 
+\\
+\subfloat[User]{
+   \label{f:user}
+    \includegraphics[width=0.3\textwidth]{img/mod_user.png}}
+\subfloat[Vote]{
+   \label{f:vote}
+    \includegraphics[width=0.3\textwidth]{img/mod_vote.png}}
+ \caption{Modelos}
+ \label{f:modelos_front}
+\end{figure}
+
+
+\subsection{Capa de servicios} 
+\label{sec:arquitectura}
+
+En este apartado vamos a dejar de lado la parte de la vista de la aplicaci\'on para ir adentr\'andonos en la parte de servicios. Por un lado hay un proyecto para todo el desarrollo de la parte front y otro para la parte back, pero esto tiene que ser conectado de alguna manera. Una vez visto este paso intermedio, profonduzaremos en la parte back en el apartado \ref{sec:backend}.
+
+
+El cliente env\'ia una petici\'on HTTP, en este caso la aplicaci\'on. La petici\'on es un mensaje de texto creado por un cliente en un formato especial. El cliente env\'ia la petici\'on a un servidor, y luego espera la respuesta. La primera l\'inea de una petici\'on HTTP es la m\'as importante y contiene dos cosas: la URI y el m\'etodo HTTP. La URI es la direcci\'on o ubicaci\'on que identifica un\'ivocamente al recurso que solicita el cliente y el m\'etodo HTTP  define lo que quieres hacer con el recurso.
+
+En la figura \ref{figura:http_service} est\'an representadas todas las peticiones que realiza la aplicaci\'on, separadas por pantallas. El m\'etodo GET se utiliza para recuperar datos del servidor y transmite informaci\'on a trav\'es de la URI agregandole par\'ametros. El m\'etodo POST se usa para crear un recurso en el servidor y los datos se incluyen en el cuerpo de la petici\'on.
+
+
+\begin{itemize}
+\item Login: 
+
+Solo es necesario consultar si el usuario y contrase\~na introducidos son correctos y existen en la base de datos. El m\'etodo utilizado para ello es de tipo POST, ya que los detalles de email y contrase\~na se enviar\'an en el cuerpo de mensajes HTTP en lugar de en la URL.
+
+\item Registro:
+Lo que se quiere es generar un recurso en el servidor, es decir, a\~nadir en la base de datos un nuevo usuario. El m\'etodo utilizado para ello es de tipo POST, en cuyo cuerpo lleva el nombre de usuario, email y contrase\~na.
+
+\item Mis encuestas:
+Es necesario realizar una petici\'on para recuperar todas las encuestas. Para ello se realiza una peticion GET con el id del usuario como par\'ametro. Adem\'as de esta petici\'on, a la hora de visualizar los votos que tiene determinada encuesta, se utiliza una petici\'on GET con id de encuesta como par\'ametro.
+
+\item Nueva encuesta:
+A la hora de crear una encuesta, como ya ha sido explicado en el apartado \ref{sec:nueva_encuesta}, existen tres pasos diferentes, de los cuales, los dos primeros requieren peticiones HTTP. 
+En el primer paso, en la creaci\'on de la encuesta, se usa una petici\'on POST para que se a\~nada la encuesta en la base de datos. En el cuerpo de esta petici\'on, van el t\'itulo, las opciones y todos los datos que definen la encuesta. 
+Una vez creada la encuesta, en el segundo paso, hay que enviar la encuesta a los amigos. Para pintar el listado de amigos, es necesario traer estos datos del servidor mediante una petici\'on GET con id de usuario como par\'ametro. Adem\'as se utilizan peticiones para a\~nadir o borrar la encuesta al amigo seleccionado.
+
+\item Votaciones pendientes: 
+Para poder pintar el listado de votos pendientes o de editar votos, se realiza la petici\'on GET correspondiente, que tendr\'a como par\'amento el id del usuario. Para guardar cualquier voto, se hace mediante una petici\'on POST con los votos en el cuerpo.
+Si se realiza la votaci\'on de una encuesta que pertenece a los votos pendientes, desaparecer\'a de los votos pendientes y pasar\'a a ser de la lista de editar votos. Todo esto se realiza con peticiones POST.
+
+\item Perfil:
+Esta pantalla permite los cambios de usuario o de contrase\~na. Ambos se hacen con peticiones PUT, ya que solo se trata de actualizar los valores en la base de datos.
+
+\item Mis amigos:
+Esta parte de la aplicaci\'on requiere de dos listados. Ambos son obtenidos mediante peticiones GET, cada una apuntando a la URL correspondiente.
+
+\end{itemize}
+
+
+
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/http_service.png}
+  \caption{Peticiones HTTP}
+  \label{figura:http_service}
+\end{figure}
+
+
+
+
+\section{Backend}
+\label{sec:backend}
+
+\subsection{Modelos} 
+\label{sec:modelos}
+
+
+\subsection{Colecciones} 
+\label{sec:colecciones}
+
+\subsection{Controladores} 
+\label{sec:controladores}
+
+\subsection{Seguridad} 
+\label{sec:seguridad}
 
 
 
