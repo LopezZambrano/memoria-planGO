@@ -999,7 +999,7 @@ En el listado se ven todos los usuarios que contiene en su lista de amigos.
    \label{f:nombre}
     \includegraphics[width=0.3\textwidth]{img/perfil1.png}}
   \subfloat[Cambio contrase\~na]{
-   \label{f:contrase\~na}
+   \label{f:contrasena}
     \includegraphics[width=0.3\textwidth]{img/perfil2.png}}
  \caption{Pantalla de Perfil}
  \label{f:perfil}
@@ -1140,7 +1140,7 @@ la figura \ref{figura:arq_comp}, de forma esquem\'atica, podemos ver que compone
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=14cm, keepaspectratio]{img/arq_comp.png}
+  \includegraphics[width=13cm, keepaspectratio]{img/arq_comp.png}
   \caption{Estructura componentes}
   \label{figura:arq_comp}
 \end{figure}
@@ -1193,29 +1193,28 @@ En la figura \ref{figura:http_service} est\'an representadas todas las peticione
 
 \begin{itemize}
 \item Login: 
-
-Solo es necesario consultar si el usuario y contrase\~na introducidos son correctos y existen en la base de datos. El m\'etodo utilizado para ello es de tipo POST, ya que los detalles de email y contrase\~na se enviar\'an en el cuerpo de mensajes HTTP en lugar de en la URL.
+solo es necesario consultar si el usuario y contrase\~na introducidos son correctos y existen en la base de datos. El m\'etodo utilizado para ello es de tipo POST, ya que los detalles de email y contrase\~na se enviar\'an en el cuerpo de mensajes HTTP en lugar de en la URL.
 
 \item Registro:
-Lo que se quiere es generar un recurso en el servidor, es decir, a\~nadir en la base de datos un nuevo usuario. El m\'etodo utilizado para ello es de tipo POST, en cuyo cuerpo lleva el nombre de usuario, email y contrase\~na.
+lo que se quiere es generar un recurso en el servidor, es decir, a\~nadir en la base de datos un nuevo usuario. El m\'etodo utilizado para ello es de tipo POST, en cuyo cuerpo lleva el nombre de usuario, email y contrase\~na.
 
 \item Mis encuestas:
-Es necesario realizar una petici\'on para recuperar todas las encuestas. Para ello se realiza una peticion GET con el id del usuario como par\'ametro. Adem\'as de esta petici\'on, a la hora de visualizar los votos que tiene determinada encuesta, se utiliza una petici\'on GET con id de encuesta como par\'ametro.
+es necesario realizar una petici\'on para recuperar todas las encuestas. Para ello se realiza una peticion GET con el id del usuario como par\'ametro. Adem\'as de esta petici\'on, a la hora de visualizar los votos que tiene determinada encuesta, se utiliza una petici\'on GET con id de encuesta como par\'ametro.
 
 \item Nueva encuesta:
-A la hora de crear una encuesta, como ya ha sido explicado en el apartado \ref{sec:nueva_encuesta}, existen tres pasos diferentes, de los cuales, los dos primeros requieren peticiones HTTP. 
+a la hora de crear una encuesta, como ya ha sido explicado en el apartado \ref{sec:nueva_encuesta}, existen tres pasos diferentes, de los cuales, los dos primeros requieren peticiones HTTP. 
 En el primer paso, en la creaci\'on de la encuesta, se usa una petici\'on POST para que se a\~nada la encuesta en la base de datos. En el cuerpo de esta petici\'on, van el t\'itulo, las opciones y todos los datos que definen la encuesta. 
 Una vez creada la encuesta, en el segundo paso, hay que enviar la encuesta a los amigos. Para pintar el listado de amigos, es necesario traer estos datos del servidor mediante una petici\'on GET con id de usuario como par\'ametro. Adem\'as se utilizan peticiones para a\~nadir o borrar la encuesta al amigo seleccionado.
 
 \item Votaciones pendientes: 
-Para poder pintar el listado de votos pendientes o de editar votos, se realiza la petici\'on GET correspondiente, que tendr\'a como par\'amento el id del usuario. Para guardar cualquier voto, se hace mediante una petici\'on POST con los votos en el cuerpo.
+para poder pintar el listado de votos pendientes o de editar votos, se realiza la petici\'on GET correspondiente, que tendr\'a como par\'amento el id del usuario. Para guardar cualquier voto, se hace mediante una petici\'on POST con los votos en el cuerpo.
 Si se realiza la votaci\'on de una encuesta que pertenece a los votos pendientes, desaparecer\'a de los votos pendientes y pasar\'a a ser de la lista de editar votos. Todo esto se realiza con peticiones POST.
 
 \item Perfil:
-Esta pantalla permite los cambios de usuario o de contrase\~na. Ambos se hacen con peticiones PUT, ya que solo se trata de actualizar los valores en la base de datos.
+esta pantalla permite los cambios de usuario o de contrase\~na. Ambos se hacen con peticiones PUT, ya que solo se trata de actualizar los valores en la base de datos.
 
 \item Mis amigos:
-Esta parte de la aplicaci\'on requiere de dos listados. Ambos son obtenidos mediante peticiones GET, cada una apuntando a la URL correspondiente.
+esta parte de la aplicaci\'on requiere de dos listados. Ambos son obtenidos mediante peticiones GET, cada una apuntando a la URL correspondiente.
 
 \end{itemize}
 
@@ -1225,7 +1224,7 @@ Esta parte de la aplicaci\'on requiere de dos listados. Ambos son obtenidos medi
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=14cm, keepaspectratio]{img/http_service.png}
+  \includegraphics[width=11cm, keepaspectratio]{img/http_service.png}
   \caption{Peticiones HTTP}
   \label{figura:http_service}
 \end{figure}
@@ -1342,5 +1341,38 @@ Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
 % y ver�s que lo puedes hacer de manera sencilla.
 % M�s informaci�n: 
 % http://texblog.org/2014/04/22/using-google-scholar-to-download-bibtex-citations/
+
+https://victorroblesweb.es/2017/08/05/que-es-angular-y-para-que-sirve/
+
+https://carlosazaustre.es/como-crear-una-api-rest-usando-node-js/
+
+http://academia-binaria.com/formularios-de-datos-en-angular2/
+
+https://developer.mozilla.org/es/docs/Learn/Server-side/Express_Nodejs
+
+http://noticias.universia.es/ciencia-tecnologia/noticia/2017/07/07/1154054/nodejs-sirve.html
+
+https://carlosazaustre.es/ecmascript-6-el-nuevo-estandar-de-javascript/
+
+https://www.definicionabc.com/tecnologia/http.php
+
+IONIC:
+https://ionicframework.com/
+
+https://desarrolloweb.com/articulos/estructura-proyecto-ionic2.html
+
+http://slashmobility.com/blog/2016/08/ionic-2-el-framework-del-futuro/
+
+https://code.tutsplus.com/es/articles/introduction-to-ionic-2--cms-28193
+
+EXPRESS:
+http://enekodelatorre.com/expressjs-instalacion-primeros-pasos/
+
+http://expressjs.com/es/
+
+MONGODB
+https://es.wikipedia.org/wiki/NoSQL
+
+
 
 \end{document}
