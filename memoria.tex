@@ -588,7 +588,7 @@ vez que el trabajo ha sido completado emite un evento recibido por Node.js.
 
 
 \subsection{Express}
-\label{subsec:estilo}
+\label{subsec:express}
 
 Express es una infraestructura de aplicaciones web Node.js m\'inima y flexible que proporciona
 un conjunto s\'olido de caracter\'isticas para las aplicaciones web y m\'oviles. Contiene muchos
@@ -775,8 +775,19 @@ Este \'ultimo tramo ha sido dedicado a la elaboraci\'on de la memoria y la prepa
 \cleardoublepage
 \chapter{Dise\~no e implementaci\'on}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=6cm]{img/frontend-backend.png}
+  \caption{Frontend - backend}
+  \label{figura:frontend_backend}
+\end{figure}
+
+
 \section{Frontend}
 \label{sec:frontend}
+
+Es una especialidad para el desarrollo web, que trabaja la interfaz web y hace que el usuario pueda interactuar con nuestra web.
+Casi todo lo se ve en la pantalla cuando se accede a una web es desarrollo frontend, se centra en dar formato a contenidos, desarrollo del aspecto de la web y manipular resultados de datos obtenidos.
 
 \subsection{Mapa de navegaci\'on}
 \label{sec:mapa_navegacion}
@@ -795,6 +806,12 @@ en cualquier orden.
 Esta aplicaci\'on sigue una estructura combinada entre jer\'arquica y plana. Se usan estructuras
 planas para las p\'aginas de nivel superior que pueden verse en cualquier orden, y estructuras
 jer\'arquicas para las p\'aginas que tienen relaciones m\'as complejas.
+
+En la figura \ref{figura:mapa_navegacion} se puede ver el mapa de navegaci\'on de la aplicaci\'on. Empieza en la pantalla de login. Desde ah\'i se puede acceder al registro o a la pantalla de home si se han introducido bien los par\'ametros. Una vez en la pantalla de home, se puede acceder a cualquier parte de la aplicaci\'on.
+
+Cada una de las dem\'as pantallas tienen su propia navegaci\'on. En el caso de Mis encuestas, se puede acceder al detalle de esta. En el caso de nueva encueta, se accede al primer paso, de este al segundo y de este al tercero. En el caso de Mis amigos, no contiene ninguna navegaci\'on aparte de la propia del Header y en el caso de Votos pendientes, de ella puedes navegar a editar votos.
+
+La navegaci\'on del Header, tambi\'en podemos verla en la figura \ref{figura:mapa_navegacion} y esta puesta como un caso por separado, ya que es com\'un para todas las pantallas que contienen estos header. Como se puede ver, existen dos tipos de header, que ser\'an explicados con mas detalle en el apartado \ref{sec:header}.
 
 \begin{figure}[H]
   \centering
@@ -1160,25 +1177,6 @@ contiene un objeto, de esta forma se protege el c\'odigo contra posibles fallos 
 \item Existe un servicio para las peticiones al servidos de cada una de las pantallas. Adem\'as, hay un servicio que contiene toda la l\'ogica de como realizar peticiones HTTP de tipo GET, PUT y POST. Esto facilita que en cada servicio solo sea necesario importar este servicio y despu\'es usarlo para las distintas peticiones que se necesitan.
 \end{itemize}
 
-\begin{figure}[H]
- \centering
-  \subfloat[Friend]{
-   \label{f:friend}
-    \includegraphics[width=0.3\textwidth]{img/mod_friend.png}}
-  \subfloat[Poll]{
-   \label{f:poll}
-    \includegraphics[width=0.3\textwidth]{img/mod_poll.png}} 
-\\
-\subfloat[User]{
-   \label{f:user}
-    \includegraphics[width=0.3\textwidth]{img/mod_user.png}}
-\subfloat[Vote]{
-   \label{f:vote}
-    \includegraphics[width=0.3\textwidth]{img/mod_vote.png}}
- \caption{Modelos}
- \label{f:modelos_front}
-\end{figure}
-
 
 \subsection{Capa de servicios} 
 \label{sec:arquitectura}
@@ -1218,10 +1216,6 @@ esta parte de la aplicaci\'on requiere de dos listados. Ambos son obtenidos medi
 
 \end{itemize}
 
-
-
-
-
 \begin{figure}[H]
   \centering
   \includegraphics[width=11cm, keepaspectratio]{img/http_service.png}
@@ -1235,14 +1229,108 @@ esta parte de la aplicaci\'on requiere de dos listados. Ambos son obtenidos medi
 \section{Backend}
 \label{sec:backend}
 
+Est\'a enfocado s\'olo a lenguajes de programaci\'on, orientado a funcionamientos, trabajar con datos internos, crear aplicaciones que controlen datos  de la base de datos de la web, para poder ser consultados por el usuario.
+
+Toda la parte backend esta desarrollada con las tecnolog\'ias Express y MongoDB. 
+
+
+\subsection{Servidor} 
+\label{sec:servidor}
+
+Un servidor es un ordenador u otro tipo de equipo inform\'atico encargado de suministrar informaci\'on a una serie de clientes, que pueden ser tanto personas como otros dispositivos conectados a \'el. 
+
+En este proyecto se han utilizado servicios REST, que significa 'Representational State Transfer', traducido 'transferencia de representaci\'on de estado'. La clave de REST es que un servicio REST no tiene estado lo que quiere decir que, entre dos llamadas cualesquiera, el servicio pierde todos sus datos.
+
+El servidor esta desarrollado con un framwork llamado Express, cuyos detalles ya han sido explicados en el apartado \ref{subsec:express}. 
+
+Existe un fichero llamado 'app.js' para la creaci\'on del servidor y por lo tanto hacer llamadas HTTP. En este fichero se encuentran las dependencias necesarias. Tambien se encuentra que con HTTP se crea el servidor y se le indicamos en que IP y puerto estar\'a escuchando. A esta direcci\'on donde la parte del cliente enviar\'a las peticiones. Todo esto es parte de la configuraci\'on necesaria para la creaci\'on de un servidor.
+
+Una vez creado el servidor, se declaran las rutas con sus correspondientes m\'etodos HTTP e instancias. Esto significa qu\'e cuando el servidor reciba una petici\'on con alguna de las rutas declaradas y con el correcto m\'etodo, se llevara a cabo la instancia que est\'a indicada para dicha ruta. En la figura \ref{f:ej_route} se puede ver un ejemplo de como se crean las rutas.
+
+Aparte de esto, falta una parte importante, la conexi\'on con la base de datos, en este caso con MongoDB.
+
+En los siguientes apartados, se detallan los modelos y controladores, estos tambi\'en son importados en el fichero 'app.js' para su uso.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=8cm, keepaspectratio]{img/ej_route.png}
+  \caption{Ejemplo: ruta encuestas}
+  \label{f:ej_route}
+\end{figure}
+
+
+
 \subsection{Modelos} 
 \label{sec:modelos}
 
+Los modelos son creados usando Mongoose para poder guardar la informaci\'on en la base de datos siguiendo el esquema. Como base de datos se ha utilizado MongoDB. Al ser una base de datos Open Source NoSQL orientada a documentos tipo JSON viene bien para entregar los datos en este formato en las llamadas a la API. 
 
-\subsection{Colecciones} 
-\label{sec:colecciones}
+Los modelos que han sido creados son:
+\begin{itemize}
+\item User: contiene la informaci\'on necesaria del usuario: el nombre, email y contrase\~na.
+\item Poll: contiene la informaci\'on de una encuesta: titulo, ubicaci\'on, comentario, si solo es posible un voto, las opciones, el tipo de encuesta y el id del usuario que la ha creado. Ver figura \ref{f:ej_model}
+\item Friend: contiene el id del usuario y los usuarios que son sus amigos.
+\item Vote: contiene el id de la encuesta y las opciones con sus respectivos votos.
+\item Pending-vote: contiene un id de usuario y las encuestas que tiene dicho usuario por votar.
+\item Send-vote: contiene un id de usuario y las encuestas dicho usuario ya ha votado. 
+\end{itemize}
+
+Una vez creados los modelos, se puede implementar la conexi\'on a la base de datos en el archivo antes explicado, 'app.js'.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=9cm, keepaspectratio]{img/model.png}
+  \caption{Ejemplo: modelo encuesta}
+  \label{f:ej_model}
+\end{figure}
+
 
 \subsection{Controladores} 
+\label{sec:controladores}
+
+La parte de controlador tiene mucho que ver con el enrutamiento y con lo que en Express llaman middleware: funciones que reciben una entrada (request) y una salida (response). Lo que sucede entre la entrada y la salida es el controlador.
+
+Los controladores de las rutas de la API est\'an creados en un archivo separad que se llama 'controllers'. Estos controladoes son exportados para poder modularizarlos y que puedan ser llamados desde el archivo principal de la aplicaci\'on. 
+
+Existe un controlador por cada modelo de datos, en cada uno de los cuales existen funciones para llevar a cabo diferentes interaciones con la base de datos. Las interaciones suele ser que a\~nadir datos, actualizarlos o eliminarlos.
+
+En todos los controladores existen unas funciones que son comunes para todas pero con sus correspondientes peculiaridades:
+
+\begin{itemize}
+\item 'FindAll...': realiza una b\'usqueda por la colecion de la base de datos que se le haya indicado. Devuelve todos los datos encontrados, sin ning\'un filtro.
+
+\item 'FindById': como su propio nombre indica, realiza una b\'usqueda por la colecion de la base de datos que se le haya indicado y devuelve solo aquellos datos filtrados por un ID.
+
+\item 'Add...': funci\'on utilizada para a\~nadir datos a la colecci\'on indicada. Esta funci\'on no coincide en todos los controladores. En el caso del controlador para usuarios, antes de a\~nadir un nuevo usuario se comprueba que no haya ningun usuario con el mismo nombre ni con el mismo email. En los dem\'as controladores, se comprueba si el dato a a\~nadir ya existe en la base de datos, para actualizarlo o a\~nadirlo.
+
+\item 'Search...': realiza una b\'usqueda por la base de datos. En cada uno de los controladores dicha b\'usqueda se realiza por el dato o datos que repesentan el modelo de datos. En el caso del controlador de usuarios se busca por email y contrase\~na y en el resto se busca por el id de usuario.
+
+\item 'Update...': como su nombre indica, sirve para actualizar datos en la base de datos sobre algo ya almacenado.
+
+\item 'Delete...': permite eliminar datos de la base de datos.
+
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=9cm, keepaspectratio]{img/controller.png}
+  \caption{Ejemplo: funci\'on controlador}
+  \label{f:controller}
+\end{figure}
+
+Para realizar todas las b\'usquedas en la base de datos, se han utilizado m\'etodos que da MongoDB para aplicarselos a coleciones. Los m\'etodos usados para filtrar han sido findById para filtrar por id, findOne para buscar un dato concreto. Para introducir o eliminar datos se han usado otros m\'etodos: 'save' y para borrar 'detele'.
+
+
+\subsection{Base de datos: MongoDB} 
+\label{sec:colecciones}
+
+
+
+
+
+
+
+\subsection{Relaciones base de datos} 
 \label{sec:controladores}
 
 \subsection{Seguridad} 
@@ -1367,6 +1455,7 @@ https://code.tutsplus.com/es/articles/introduction-to-ionic-2--cms-28193
 
 EXPRESS:
 http://enekodelatorre.com/expressjs-instalacion-primeros-pasos/
+https://www.adictosaltrabajo.com/tutoriales/primeros-pasos-con-express/#41
 
 http://expressjs.com/es/
 
