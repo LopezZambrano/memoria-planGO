@@ -716,6 +716,7 @@ hora de organizar eventos o reuniones, adem\'as de realizar encuestas de todo ti
  \item Tr\'as realizar la votaci\'on de una encuesta, es posible modificar el voto.
  \item Un usuario puede cambiar sus datos personales de la cuenta, que son el nombre de usuario y contrase\~na.
 \item Para facilitar la b\'usqueda de amigos, el usuario no deber\'a introducir el nombre concreto en el buscador, se hace una b\'usqueda de todos los nombres que contengan los caracteres introducidos.
+\item Un usuario que a\'un no tenga amigos en su lista, no puede crear una encuesta.
 \end{itemize}
 
 \subsection{Backend}
@@ -729,6 +730,7 @@ hora de organizar eventos o reuniones, adem\'as de realizar encuestas de todo ti
  \item Encriptar las contrase\~nas que se han registrado y as\'i guardarlas en la base de datos.
  \item Permitir el cambio de nombre de usuario o contrase\~na, siempre que el usuario introduzca una contrase\~na v\'alida.
  \item Permitir borrar una cuenta.
+\item Solo puede haber un voto por usuario y opci\'on.
  
  
 
@@ -961,6 +963,13 @@ jer\'arquica, aparece el icono atr\'as, para el resto de los casos aparece el ic
 \subsubsection{Mis encuestas}
 \label{sec:mis_encuestas}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{img/mis_encuestas.png}
+  \caption{Pantalla de Mis encuestas}
+  \label{figura:mis_encuestas}
+\end{figure}
+
 En esta pantalla el usuasio tiene acceso a todas las encuestas que han sido creadas por \'el.
 Como vemos en la figura, aparece un listado con todas las encuestas. Es posible hacer click en
 cualquiera de las encuestas para acceder a los votos que ha obtenido.
@@ -1103,7 +1112,7 @@ durante la creaci\'on de la encuesta o modificar las invitaciones a amigos.
     \includegraphics[width=0.3\textwidth]{img/pendientes.png}}
   \subfloat[Votaci\'on]{
    \label{f:votacion}
-    \includegraphics[width=0.3\textwidth]{img/pendientes.png}}
+    \includegraphics[width=0.3\textwidth]{img/pend.png}}
  \caption{Pantalla de Votaciones pendientes}
  \label{f:votaciones_pendientes}
 \end{figure}
@@ -1318,23 +1327,117 @@ En todos los controladores existen unas funciones que son comunes para todas per
   \label{f:controller}
 \end{figure}
 
-Para realizar todas las b\'usquedas en la base de datos, se han utilizado m\'etodos que da MongoDB para aplicarselos a coleciones. Los m\'etodos usados para filtrar han sido findById para filtrar por id, findOne para buscar un dato concreto. Para introducir o eliminar datos se han usado otros m\'etodos: 'save' y para borrar 'detele'.
+Siempre que se quiera trabajar con los datos de una base de datos debe
+seguir una nomenclatura definida. Primeramente aparecere el nombre de la colecci\'on sobre la que se quiere
+trabajar y posteriormente el m\'etodo a usar. Los m\'etodos usados para filtrar han sido findById para filtrar por id, findOne para buscar un dato concreto. Para introducir o eliminar datos se han usado otros m\'etodos: 'save' y para borrar 'detele'.
 
 
 \subsection{Base de datos: MongoDB} 
+\label{sec:base_datos_mongo}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/arq_mongo.png}
+  \caption{Arquitectura MongoDB}
+  \label{f:arq_mongo}
+\end{figure}
+
+La jerarqu\'ia principal de MongoDB viene dada por los elementos
+presentados en la figura \ref{f:arq_mongo}. Utiliza documentos con distintas estructuras. Un
+conjunto de Campos formar\'an un Documento, que en caso de asociarse con
+otros formar\'a una Colecci\'on. Las bases de datos estar\'a formada por
+Colecciones, y a su vez, cada servidor puede tener tantas bases de datos como el
+equipo lo permita.
+
+En este caso solo hay una base de datos, que recibe el nombre de encuestasApp. Esta base de datos tiene seis coleccioneque contienen  una serie de campos diferentes, en funci\'on de las necesidades de dicha colecci\'on. Estas funcionalidades se ver\'an detalladamente en el apartado \ref{sec:colecciones}.
+
+En la figura \ref{f:ej_col}, se puede ver en detalle como esta formada la base de datos. Aparecen todas las colecciones y en detalle la de 'Users'. Esta colecci\'on almacena Documentos con los campos de usuario, email y contrase\~na, adem\'as a\~nade campo de id que identifica este documento en la base de datos y campos propios de la encriptaci\'on. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=17cm, keepaspectratio]{img/ej_col.png}
+  \caption{Ejemplo coleccion 'Users'}
+  \label{f:ej_col}
+\end{figure}
+
+
+\subsection{Colecciones} 
 \label{sec:colecciones}
 
+Una colecci\'on, como ya se ha explicado, es un contenedor de los documentos en MongoDB. No es necesaria su creaci\'on datos por primera vez, ya que Mongo comprueba previamente si existe la colecci\'on y si no, la crea autom\'aticamente.
+
+Todos los documentos tienen el capo de 'id', este campo es creado por Mongo para poder identificar cada documento y 'v' que hace refecencia a la versi\'on.
+
+\subsubsection{Users} 
+\label{sec:c_users}
+Esta coleci\'on contiene documentos con los campos de nombre, email, contrase\~na. Adem\'as, tambi\'en existen el campo 'encpassword', que nos permite saber si la contrase\~na esta o no encriptada.
+
+La principal funci\'on de esta coleci\'on es almacenar todas las cuentas de usuario que se han creado en la aplicaci\'on. Solo aquellos usuarios que tengan cuenta podr\'an acceder, introduciendo su email y contrase\~na. Adem\'as de esto, nos d\'a un identificador que es \'unico para cada usuario. Este id es muy importante a la hora de relacionar los datos de esta colecci\'on con otra.
+
+\subsubsection{Polls} 
+\label{sec:c_polls}
+Esta coleci\'on contiene documentos con los campos de t\'itulo, ubicaci\'on, comentario, solo un voto, tipo, opciones e id de usuario.
+
+Todas las encuestas que son creadas a trav\'es de la aplicaci\'on son almacenadas en esta colecci\'on. Para saber quien es el creador de la encuesta, cada documento contine el campo 'idUser', este coincide con uno de los id de la colecci\'on de 'Users'. De esta manera tenemos relacionadas ambas colecciones.
+
+\subsubsection{Friends} 
+\label{sec:c_friends}
+Esta coleci\'on contiene documentos con los campos de id de usuario e id de amigos.
+
+El id de usuario se corresponde a un id de la colecci\'on de 'Users' y nos permite conocer a qu\'e usuario estamos haciendo referencia. El id de amigos se trata de un array de ids, todos ellos de la coleccion de 'Users. De esta forma, cuando se necesita conocer qu\'e amigos tiene un determinado usuario, solo es necesario filtrar esta colecci\'on por su id y, a partir de su array id de amigos y la colecci\'on 'Users', conocer los detalles de sus amigos. 
+
+\subsubsection{Votes} 
+\label{sec:c_votes}
+
+Esta colecci\'on contiene documentos con los campos de id de encuesta y un array de opciones. Dentro de este array, hay otro array que contiene los voto.
+
+El id de encuesta se corresponde a un id de la colecci\'on de 'Polls' y nos permite saber a que encuesta estamos haciendo referencia. El array de opcione contiene todas las opciones de la encuesta. Por cada opci\'on hay un array en el que se almacena quien la ha votado. 
 
 
+\subsubsection{Pendings} 
+\label{sec:c_pending}
+
+Esta colecci\'on contiene documentos con los campos de id de usuario e id de encuesta.
+
+La funcionalidad de esta colecci\'on es conocer que encuestas tiene el usuario pendientes de votar. Con el id de usuario se conoce el usuario que tiene que votar y con el id de encuesta la encuesta a votar. Accediendo a la colecci\'on 'Polls' con el id se pueden conocer los detalles de la encuesta.
+
+\subsubsection{Send} 
+\label{sec:c_send}
+
+Esta colecci\'on contiene documentos con los campos de id de usuario e id de encuesta.
+
+La funcionalidad de esta colecci\'on es conocer que encuestas ha votado ya el usuario. Con el id de usuario se conoce el usuario que ha votado y con el id de encuesta la encuesta. Accediendo a la colecci\'on 'Polls' con el id se pueden conocer los detalles de la encuesta.
 
 
+\subsection{Relaci\'on entre colecciones} 
+\label{sec:colecciones}
 
+La mejor manera de entender las colecciones descritas en el apartado \ref{sec:colecciones} es saber las relaciones que hay entre ellas. Algunas de las colecciones tienen la funcionalidad unicamente de relacionar dos colecciones. Es el caso de 'Friends', 'Pendigns' y 'Send'. Esto se consigue gracias a los identificadores \'unicos de cada documento.
 
-\subsection{Relaciones base de datos} 
-\label{sec:controladores}
+Esta forma de relacionar datos tiene un inconveniente, la posible inconsistencia de datos. Una base de datos est\'a inconsistente si dos datos que deber\'ian ser iguales no lo son. Esto puede ocurrir si para una funcionalidad se necesita modificar dos colecciones distintas y, por alg\'un error, solo se realiza en una. Al tratarse de una base de datos no relacional, para solucionar esta incosistencia, una coleccion deber\'ia contener todos los datos. Pero esto no ser\'ia eficiente, las operaciones con la base de datos llevar\'ian m\'as tiempo, incluso llegando a ser imposible su uso si el n\'umero de documentos es muy grande.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=18.5cm, keepaspectratio]{img/base_datos.png}
+  \caption{Relaci\'on entre colecciones}
+  \label{f:}
+\end{figure}
+
 
 \subsection{Seguridad} 
 \label{sec:seguridad}
+
+De los datos almacenados en la base de datos, la autentificaci\'on es lo m\'as importante de cara a la seguridad. Por esto he considerado necesario guardar la contrase\~na encriptada. De esta manera, aunque alguien acceda a la base de datos, no podr\'a obtener la contrase\~na real.
+
+La encriptaci\'on est\'a hecha mediante un plugin de mongoose llamado mongoose-field-encryption. Ofrece un cifrado sim\'etrico para campos individuales. En necesario indicar una contrase\~na que permite en encriptado y desencriptado. El inconveniente de este m\'etodo es que si alguien consiguiera esta consese\~na tendr\'ia acceso a todas las contrase\~nas.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/enc.png}
+  \caption{Encriptaci\'on}
+  \label{f:}
+\end{figure}
+
 
 
 
@@ -1362,43 +1465,39 @@ Si es una herramienta de an�lisis lo que has realizado, aqu� puedes poner ej
 \label{chap:conclusiones}
 
 
-\section{Consecuci�n de objetivos}
-\label{sec:consecucion-objetivos}
-
-Esta secci�n es la secci�n espejo de las dos primeras del cap�tulo de objetivos, donde se planteaba el objetivo general y se elaboraban los espec�ficos.
-
-Es aqu� donde hay que debatir qu� se ha conseguido y qu� no. 
-Cuando algo no se ha conseguido, se ha de justificar, en t�rminos de qu� problemas se han encontrado y qu� medidas se han tomado para mitigar esos problemas.
 
 
-\section{Aplicaci�n de lo aprendido}
+\section{Aplicaci\'on de lo aprendido}
 \label{sec:aplicacion}
 
-Aqu� viene lo que has aprendido durante el Grado/M�ster y que has aplicado en el TFG/TFM. Una buena idea es poner las asignaturas m�s relacionadas y comentar en un p�rrafo los conocimientos y habilidades puestos en pr�ctica.
+Durante el grado de Ingenier\'ia en Sistemas de Telecomunicaci\'on, solo he tenido una asignatura relacionada con este proyecto. Esta asignatura se llama . Este proyecto ha sido inspirado en esta asignatura, ya que me pareci\'on tan interesante que he querido profundizar en ello.
 
-\begin{enumerate}
-  \item a
-  \item b
-\end{enumerate}
+He aplicado la base de desarrollo web como HTML y CSS aprendidos en dicha asignatura.
+
 
 
 \section{Lecciones aprendidas}
 \label{sec:lecciones_aprendidas}
 
-Aqu� viene lo que has aprendido en el Trabajo Fin de Grado/M�ster.
+Durante el desarrollo de Trabajo Fin de Grado he aprendido:
 
 \begin{enumerate}
-  \item a
-  \item b
+  \item Lenguaje programaci\'on JavaScript y TypeScript.
+  \item Ampliar los conocimientos de CSS.
+  \item Desarrollo en Angular e Ionic.
+  \item Creaci\'on de un servidor mediante el framework Express.
+  \item Utilizaci\'on base de datos MongoDB.
+  \item Instalaci\'on de un apk en un dispositivo.
 \end{enumerate}
 
 
 \section{Trabajos futuros}
 \label{sec:trabajos_futuros}
 
-Ning�n software se termina, as� que aqu� vienen ideas y funcionalidades que estar�a bien tener implementadas en el futuro.
+Como cualquier aplicaci\'on, existen varias versiones de la misma. Esto se debe a que hay mejores continuas y correci\'on de errores. En las stores de app es posible valorar cada aplicaci\'on y a\~nadir quejar y sugerencias, es la mejor manera de que la  aplicaci\'on evolucione.
 
-Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
+Aparte de mejoras en la usabilidad que usuarios puedan pedir, como posible trabajo futuro, ser\'ia interesante a\~nadir m\'as seguridad a la base de datos. Al tratarse de una aplicaci\'on cuyos datos almacenados no son de gran importancia, he considerado que era m\'as importante desarrollar m\'as el proyecto en otros \'ambitos.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1461,6 +1560,8 @@ http://expressjs.com/es/
 
 MONGODB
 https://es.wikipedia.org/wiki/NoSQL
+http://cidecame.uaeh.edu.mx/lcc/mapa/PROYECTO/libro14/412_inconsistencia_de_datos.html
+
 
 
 
