@@ -19,8 +19,8 @@
 
 \documentclass[a4paper, 12pt]{book}
 %\usepackage[T1]{fontenc}
-
-
+\setcounter{tocdepth}{4}
+ \setlength{\parskip}{9pt}
 \usepackage{subfig}
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
 \usepackage{times}
@@ -167,17 +167,16 @@ Adem�s, la pareja quiz�s no sea para siempre, pero tu madre s�.
 %\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el �ndice
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
-Aqu� viene un resumen del proyecto. Ha de constar de tres o cuatro p�rrafos, donde se presente de manera clara y concisa de qu� va el proyecto. 
-Han de quedar respondidas las siguientes preguntas:
+Este proyecto se trata del desarrollo de una aplicaci\'on movil cuya funcionalidad principal es el recuento de votos para una determinada encuesta. Tomar decisiones cuando el grupo de personas es amplio es dificil. Para ayudar en estas decisiones se puede utilizar esta aplicaci\'on, permite la creaci\'on de encuestas y los votantes pueden elegir cuando o que les viene mejor. El usuario que crea la encuesta, podr\'a consultar en cualquier momento cual es la opci\'on ganadora y quienes han votado.
 
-\begin{itemize}
-  \item �De qu� va este proyecto? �Cu�l es su objetivo principal?
-  \item �C�mo se ha realizado? �Qu� tecnolog�as est�n involucradas?
-  \item �En qu� contexto se ha realizado el proyecto? �Es un proyecto
-dentro de un marco general?
-\end{itemize}
+Este proyecto se ha llevado a cabo utilizando una serie de frameworks muy utilizados hoy en d\'ia como es Angular para la parte frontend. Basandose en las b\'usquedas de Google, Angular es uno de los frameworks que dominan el mercado. El aprendizaje de esta tecnolog\'ia es el principal motivo de la realizaci\'on de este proyecto, aparte de mi gran inter\'es en el desarrollo web. La parte backend esta desarrollada con el framework Express. Este est\'a basado en Node.js que tambi\'en es muy utilizado.
 
-Lo mejor es escribir el resumen al final.
+Para la realizaci\'on del desarrollo, aparte de los frameworks mencionados, ha sido necesario el aprendizaje de JavaScript, TypeScript, Node.js, HTML5, CSS3, HTTP y MongoDB.
+
+Una vez finalizada la implementaci\'on de la aplicaci\'on y realizado un despliegue utilizando el PC como servidor, se ha procedido con la realizaci\'on de una prueba de validaci\'on basada en la utilizaci\'on de esta aplicaci\'on por usuarios que han instalado el apk en sus dispositivos m\'oviles. Tras usar la aplicaci\'on dichos usuarios se han sometido a una encuesta. La finalidad de esta, como de cualquier aplicaci\'on, es conocer posibles mejoras de cara a futuras versiones y saber como de \'util parece a los usuarios.
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -190,6 +189,7 @@ Lo mejor es escribir el resumen al final.
 % y comentar/descomentar esa instrucci�n de LaTeX.
 
 %%%% �ndice de contenidos
+
 \tableofcontents 
 %%%% �ndice de figuras
 \cleardoublepage
@@ -220,6 +220,8 @@ la evoluci\'on a nivel de dispositivo como a nivel de aplicaciones. Se han desar
 aplicaciones muy potentes que nos facilitan la vida. Un claro ejemplo es el poder gestionar tus
 cuentas del banco e incluso realizar operaciones desde cualquier lugar. Existen aplicaciones
 para todos los gustos, necesidades e intereses.
+
+La oferta en cuanto a desarrollo de aplicaciones m\'oviles ha ido aumentando conforme los h\'abitos de consumo se han ido dirigiendo hacia el incremento de la utilizaci\'on de dispositivos m\'oviles. Y es que el estilo de vida que impera en estos momentos, definido por la movilidad y la falta de tiempo, hace que aparatos como tablets o m\'oviles sean mucho m\'as importantes al poderse llevar sin problemas de un lado a otro.
 
 Encontrar un d\'ia y una hora para quedar entre varias personas nunca ha sido f\'acil. Gracias a Internet y a las nuevas tecnolog\'ias ya no hay excusas. Existen en la red unas herramientas web llamadas planificadores online que nos permiten encontrar las mejores fechas y horas para organizar una cita, ya sea f\'isica o virtual.
 
@@ -1161,8 +1163,18 @@ pueden contener otros componentes. De esta manera la arquitectura conseguida es 
 
 Cada componente esta formado por tres ficheros: el typescript donde est\'a la l\'ogica, el html donde est\'a la vista y el css que modifica la vista.
 
-En este proyecto, hay pantallas que est\'an formadas \'unicamente por un componente y otras que contienen m\'as. En
-la figura \ref{figura:arq_comp}, de forma esquem\'atica, podemos ver que componentes forman cada una de las pantallas. La pantalla de login es la \'unica que realmente contiene un \'unico componente, en cambio Registro, Home y Perfil aparte de su propio componente, est\'an formados por el componente com\'un Header.
+En este proyecto, hay pantallas que est\'an formadas \'unicamente por un componente y otras que contienen m\'as. La pantalla de login es la \'unica que realmente contiene un \'unico componente, en cambio Registro, Home y Perfil aparte de su propio componente, est\'an formados por el componente com\'un Header. En la figura \ref{figura:arq_comp}, de forma esquem\'atica, se puede ver qu\'e componentes forman cada una de las pantallas. 
+
+La pantalla de Mis encuestas cuenta con dos diferentes, uno que muestra el listado de todas las encuestas creadas por el usuario logeado  y otro para mostrar el detalle y sus votos. Este \'ultimo contiene a su vez el componente de calendario, que s\'olo se muestra en el caso de ser una encuesta de tipo fecha.
+
+La pantalla de Nueva encuesta est\'a formada por cuatro componentes. Un componente principal que contiene las tabs y el control sobre estas, y los componentes de las pantallas del primer, segundo y tercer paso. El primer paso es la creaci\'on, el segundo la invitaci\'on y por ultimo la pantalla de editar.
+
+La pantalla de Votaciones pendientes , tiene estructura similar a la de Nueva encuesta. Hay un componente principal que contiene las tabs y el control de est\'as, y los dos componentes que forman las pantallas de cada tab.
+
+El componente Header, que es com\'un para la mayoria de las pantallas, lo esta puesto en la figura aparte. Este contiene el men\'u lateral, que es un componente y la navegaci\'on a Ayuda, que tambi\'en es un componente.
+
+
+
 
 \begin{figure}[H]
   \centering
@@ -1231,7 +1243,6 @@ esta parte de la aplicaci\'on requiere de dos listados. Ambos son obtenidos medi
   \caption{Peticiones HTTP}
   \label{figura:http_service}
 \end{figure}
-
 
 
 
@@ -1568,6 +1579,9 @@ http://www.mclibre.org/consultar/htmlcss/otros/historia_resumen.html
 
 https://angular.io/tutorial
 
+https://www.tecnocosas.es/evolucion-de-las-aplicaciones-moviles/
+
+https://sites.google.com/site/guiadelatex/
 
 
 
