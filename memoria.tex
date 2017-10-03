@@ -922,7 +922,7 @@ usuario, lo mas importante es identificar quien esta votando y a quien va dirigi
 \end{figure}
 
 En esta pantalla se encuentran accesos directos a distintas partes de la aplicaci\'on. Desde esta se puede acceder a todas las partes de la aplicaci\'on,
-excepto al perfil que se accede mediante el menú lateral. 
+excepto al perfil que se accede mediante el men\'u lateral. 
 
 El usuario puede acceder a sus encuestas creadas, a crear una nueva encuesta, consultar y a\~nadir a sus
 amigos y acceder a las votaciones.
@@ -936,10 +936,10 @@ Al pulsar alguno de los accesos directos, se produce la navegaci\'on a la pantal
 \begin{figure}[H]
  \centering
   \subfloat[Men\'u]{
-   \label{f:menu}
+   \label{f:menu1}
     \includegraphics[width=0.3\textwidth]{img/header_menu.png}}
   \subfloat[Atr\'as]{
-   \label{f:atras}
+   \label{f:atras1}
     \includegraphics[width=0.3\textwidth]{img/header_atras.png}}
  \caption{Header}
  \label{f:header}
@@ -968,7 +968,7 @@ El header cuenta con 4 botones:
 \item Icono flecha: este icono te permite acceder a la pantalla anterior.
 \end{itemize}
 
-Como vemos en las figuras \ref{f:menu} y \ref{f:atras} el menu lateral y el icono flecha no se muestran a la vez.
+Como vemos en las figuras \ref{f:menu1} y \ref{f:atras1} el menu lateral y el icono flecha no se muestran a la vez.
 Esto va a depender de la pantalla en la que nos encontremos. Cuando se produce navegaci\'on
 jer\'arquica, aparece el icono atr\'as, para el resto de los casos aparece el icono de men\'u.
 
@@ -978,14 +978,19 @@ jer\'arquica, aparece el icono atr\'as, para el resto de los casos aparece el ic
 \label{sec:mis_encuestas}
 
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.3\textwidth]{img/mis_encuestas.png}
+ \centering
+  \subfloat[Listado]{
+   \label{f:polls}
+   \includegraphics[width=0.3\textwidth]{img/mis_encuestas.png}}
+  \subfloat[Detalle]{
+   \label{f:scroll_tabla}
+    \includegraphics[width=0.3\textwidth]{img/votos_1.png}}
   \caption{Pantalla de Mis encuestas}
-  \label{figura:mis_encuestas}
+ \label{f:mis_encuestas}
 \end{figure}
 
 En esta pantalla el usuasio tiene acceso a todas las encuestas que han sido creadas por \'el.
-Como vemos en la figura, aparece un listado con todas las encuestas. Es posible hacer click en
+Como vemos en la figura \ref{f:polls}, aparece un listado con todas las encuestas. Es posible hacer click en
 cualquiera de las encuestas para acceder a los votos que ha obtenido.
 
 Si no hay votos para la encuesta seleccionada, se mostrara un mensaje de aviso. En caso de que haya
@@ -995,6 +1000,8 @@ Cuando la encuesta es de tipo texto, se muestra una tabla con las opciones que t
 y un recuento de votos por usuario. Cuando la encuesta es de tipo fecha, aparece un calendario con los d\'ias
 que existen como opci\'on remarcados. Estos d\'ias se pueden pulsar, para que aparezca el detalle de las horas
 a elegir, en caso de que las haya. Despu\'es hay una tabla igual que la descrita anteriormente para tipo texto.
+
+Debido a que la tabla crece horizontalmente seg\'un sea el n\'umero de opciones, esta tabla permite realizar scroll horizontal. 
 
 
 
