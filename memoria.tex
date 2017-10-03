@@ -20,7 +20,7 @@
 \documentclass[a4paper, 12pt]{book}
 %\usepackage[T1]{fontenc}
 \setcounter{tocdepth}{4}
- \setlength{\parskip}{9pt}
+ \setlength{\parskip}{8pt}
 \usepackage{subfig}
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
 \usepackage{times}
@@ -489,10 +489,18 @@ Interpreta las URL como una instrucci\'on de navegaci\'on a un componente o vist
 
 Angular crea por cada componente un detector de cambios en tiempo de ejecici\'on adaptado a la estructura concreta de cada uno de ellos. Esto permite una gran optimizaci\'on de dichos detectores de cambios.
 
-
-
-
 \end{itemize}
+
+
+\subsubsection{Arquitectura}
+\label{subsec:arquitectura_angular}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=10cm, keepaspectratio]{img/arq_angular}
+  \caption{Arquitectura Angular}
+  \label{figura:arq_angular}
+\end{figure}
 
 
 \subsection{Ionic 2}
@@ -781,8 +789,8 @@ Este \'ultimo tramo ha sido dedicado a la elaboraci\'on de la memoria y la prepa
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=6cm]{img/frontend-backend.png}
-  \caption{Frontend - backend}
+  \includegraphics[width=14cm]{img/resumen.png}
+  \caption{Arquitectura de la aplicaci\'on}
   \label{figura:frontend_backend}
 \end{figure}
 
@@ -913,8 +921,10 @@ usuario, lo mas importante es identificar quien esta votando y a quien va dirigi
   \label{figura:home}
 \end{figure}
 
-En esta pantalla se encuentran accesos directos a distintas partes de la aplicaci\'on. El usuario
-puede acceder a las encuestas que ha creado, crear una nueva encuesta, consultar y a\~nadir a sus
+En esta pantalla se encuentran accesos directos a distintas partes de la aplicaci\'on. Desde esta se puede acceder a todas las partes de la aplicaci\'on,
+excepto al perfil que se accede mediante el menú lateral. 
+
+El usuario puede acceder a sus encuestas creadas, a crear una nueva encuesta, consultar y a\~nadir a sus
 amigos y acceder a las votaciones.
 
 Al pulsar alguno de los accesos directos, se produce la navegaci\'on a la pantalla que corresponde.
@@ -935,13 +945,26 @@ Al pulsar alguno de los accesos directos, se produce la navegaci\'on a la pantal
  \label{f:header}
 \end{figure}
 
+\begin{figure}[H]
+ \centering
+  \subfloat[Men\'u]{
+   \label{f:menu}
+    \includegraphics[width=0.3\textwidth]{img/menu.png}}
+  \subfloat[Ayuda]{
+   \label{f:help}
+    \includegraphics[width=0.3\textwidth]{img/help.png}}
+ \caption{Pantalla de Men\'u y Ayuda}
+ \label{f:header}
+\end{figure}
+
+
 El header cuenta con 4 botones:
 
 \begin{itemize}
-\item Men\'u latera: nos permite acceder a cualquier parte de la aplicaci\'on.
+\item Men\'u latera: nos permite acceder a cualquier parte de la aplicaci\'on, figura \ref{f:menu}.
 
 \item Icono planGO: este icono te dirige a la pantalla de Home.
-\item Icono ayuda: este icono te dirige a la pantalla de Ayuda.
+\item Icono ayuda: este icono te dirige a la pantalla de Ayuda, figura \ref{f:help}
 \item Icono flecha: este icono te permite acceder a la pantalla anterior.
 \end{itemize}
 
@@ -949,17 +972,6 @@ Como vemos en las figuras \ref{f:menu} y \ref{f:atras} el menu lateral y el icon
 Esto va a depender de la pantalla en la que nos encontremos. Cuando se produce navegaci\'on
 jer\'arquica, aparece el icono atr\'as, para el resto de los casos aparece el icono de men\'u.
 
-\begin{figure}[H]
- \centering
-  \subfloat[Men\'u]{
-   \label{f:menu}
-    \includegraphics[width=0.3\textwidth]{img/menu.png}}
-  \subfloat[Ayuda]{
-   \label{f:atras}
-    \includegraphics[width=0.3\textwidth]{img/help.png}}
- \caption{Pantalla de Men\'u y Ayuda}
- \label{f:header}
-\end{figure}
 
 
 \subsubsection{Mis encuestas}
@@ -1038,11 +1050,11 @@ diferente. Es una pantalla bastante intuitiva como se ve en la fig.
 
 En el desplegable 'Cambiar Username' el usuario podr\'a cambiar el nombre con el que esta
 identificado en la aplicaci\'on. En el caso del desplegable 'Cambiar contrase\~na' el usuario podr\'a
-cambiar su contrase´na actual.
+cambiar su contrase\~na actual.
 
 Para todos los cambios que se realicen en el perfil del usuario, por seguridad, es necesario
-que introduzca la contrase´na actual. De esta manera solo el propio usuario conocedor de su
-contrase´na podr\'a realizar cambios.
+que introduzca la contrase\~na actual. De esta manera solo el propio usuario conocedor de su
+contrase\~na podr\'a realizar cambios.
 
 
 \subsubsection{Nueva encuesta}
@@ -1051,8 +1063,15 @@ contrase´na podr\'a realizar cambios.
 Esta es la parte principal de la aplicaci\'on, la creaci\'on de la encuesta.
 Existen dos tipos de encuesta: por fecha o por texto. En una encuesta por fecha, se podr\'a 
 votar sobre fechas y horas. En el caso de una encuesta por texto las votaciones se realizaran
-entre textos que pueden ser de cualquier tipo. Como se ve en la figura, esta elecci\'on se hace
+entre textos que pueden ser de cualquier tipo. Como se ve en la figura \ref{figura:tipo_encuestas}, esta elecci\'on se hace
 pulsando en el boton 'Nueva encuesta'.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{img/t_texto.png}
+  \caption{Tipo de encuesta}
+  \label{figura:tipo_encuestas}
+\end{figure}
 
 Una vez selecionado el tipo de encuesta que se quiere crear, se accede a rellenar los datos
 necesarios para la encuesta como se ve en la figura. El formulario contiene varios campos, los
@@ -1423,16 +1442,18 @@ La funcionalidad de esta colecci\'on es conocer que encuestas ha votado ya el us
 \subsection{Relaci\'on entre colecciones} 
 \label{sec:colecciones}
 
-La mejor manera de entender las colecciones descritas en el apartado \ref{sec:colecciones} es saber las relaciones que hay entre ellas. Algunas de las colecciones tienen la funcionalidad unicamente de relacionar dos colecciones. Es el caso de 'Friends', 'Pendigns' y 'Send'. Esto se consigue gracias a los identificadores \'unicos de cada documento.
-
-Esta forma de relacionar datos tiene un inconveniente, la posible inconsistencia de datos. Una base de datos est\'a inconsistente si dos datos que deber\'ian ser iguales no lo son. Esto puede ocurrir si para una funcionalidad se necesita modificar dos colecciones distintas y, por alg\'un error, solo se realiza en una. Al tratarse de una base de datos no relacional, para solucionar esta incosistencia, una coleccion deber\'ia contener todos los datos. Pero esto no ser\'ia eficiente, las operaciones con la base de datos llevar\'ian m\'as tiempo, incluso llegando a ser imposible su uso si el n\'umero de documentos es muy grande.
-
 \begin{figure}[H]
   \centering
   \includegraphics[width=18.5cm, keepaspectratio]{img/base_datos.png}
   \caption{Relaci\'on entre colecciones}
   \label{f:}
 \end{figure}
+
+La mejor manera de entender las colecciones descritas en el apartado \ref{sec:colecciones} es saber las relaciones que hay entre ellas. Algunas de las colecciones tienen la funcionalidad unicamente de relacionar dos colecciones. Es el caso de 'Friends', 'Pendigns' y 'Send'. Esto se consigue gracias a los identificadores \'unicos de cada documento.
+
+Esta forma de relacionar datos tiene un inconveniente, la posible inconsistencia de datos. Una base de datos est\'a inconsistente si dos datos que deber\'ian ser iguales no lo son. Esto puede ocurrir si para una funcionalidad se necesita modificar dos colecciones distintas y, por alg\'un error, solo se realiza en una. Al tratarse de una base de datos no relacional, para solucionar esta incosistencia, una coleccion deber\'ia contener todos los datos. Pero esto no ser\'ia eficiente, las operaciones con la base de datos llevar\'ian m\'as tiempo, incluso llegando a ser imposible su uso si el n\'umero de documentos es muy grande.
+
+
 
 
 \subsection{Seguridad} 
@@ -1502,7 +1523,7 @@ Una vez realizada la prueba, he considerado que los puntos m\'as importantes sob
 
 Gracias a la primera fase de la prueba, los usuarios pueden reflexionar sobre como de intuitiva es la aplicaci\'on. Respecto a los demas puntos de inter\'es, los usuarios lo han podido sacar sobre el desarrollo de toda la prueba.
 
-En la figura \ref{f:prueba_result} se pueden ver las puntuaciones que ha dado cada usuario. Dado que el n\'umero de usuarios que han realizado la prueba no es alto, los resultados obtenidos no son demasiado relevantes, pero si son suficientes para obtener una idea sobre la opini\'on que pueden tener los usuarios de la aplicaci\'on.
+En la figura \ref{f:prueba_result} se pueden ver las puntuaciones que ha dado cada usuario. Dado que el n\'umero de usuarios que han realizado la prueba no es alto, los resultados obtenidos no son demasiado relevantes, pero si son suficientes para obtener una idea sobre la opini\'on que pueden tener los usuarios sobre la aplicaci\'on.
 
 \begin{figure}[H]
   \centering
@@ -1510,6 +1531,10 @@ En la figura \ref{f:prueba_result} se pueden ver las puntuaciones que ha dado ca
   \caption{Resultado prueba}
   \label{f:prueba_result}
 \end{figure}
+
+Como conclusi\'on se obtiene que los puntos fuertes de la aplicacion son el dise\~no y la intuitividad. El punto a mejorar ser\'ia la utilidad, aunque a\'un as\'i tampoco tiene mal puntuaci\'on. Creo que al ser una aplicaci\'on con una funcionalidad ya conocida por los usuarios, no llama la atenci\'on especialmente por lo que ha podido repercutir en la nota sobre este punto. En cuanto la usabilidad, creo que la nota obtenia es bastante correcta. 
+
+Tras este estudio, creo que ser\'ia interesante pensar una funcionalidad que sorprenda al usuario y que no este acostumbrado a ver.
 
 \begin{figure}[H]
   \centering
@@ -1531,8 +1556,6 @@ En la figura \ref{f:prueba_result} se pueden ver las puntuaciones que ha dado ca
 \cleardoublepage
 \chapter{Conclusiones}
 \label{chap:conclusiones}
-
-
 
 
 \section{Aplicaci\'on de lo aprendido}
@@ -1565,6 +1588,8 @@ Durante el desarrollo de Trabajo Fin de Grado he aprendido:
 Como cualquier aplicaci\'on, existen varias versiones de la misma. Esto se debe a que hay mejores continuas y correci\'on de errores. En las stores de app es posible valorar cada aplicaci\'on y a\~nadir quejar y sugerencias, es la mejor manera de que la  aplicaci\'on evolucione.
 
 Aparte de mejoras en la usabilidad que usuarios puedan pedir, como posible trabajo futuro, ser\'ia interesante a\~nadir m\'as seguridad a la base de datos. Al tratarse de una aplicaci\'on cuyos datos almacenados no son de gran importancia, he considerado que era m\'as importante desarrollar m\'as el proyecto en otros \'ambitos.
+
+Ser\'ia interesante pensar algo que haga la aplicaci\'on \'unica y capte la atenci\'on de los usuarios, como hemos visto en el apartado \ref{sec:conclusion_prueba}.
 
 
 
