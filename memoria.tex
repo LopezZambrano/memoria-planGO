@@ -1605,7 +1605,53 @@ Este \'ultimo tramo ha sido dedicado a la elaboraci\'on de la memoria y la prepa
 
 \end{itemize}
 
-El c\'odigo fuente de la aplicaci\'on se encuentra en repositorios de GitHub. Por una parte esta el proyecto de \emph{frontend} cuyo c\'odigo se encuentra en \url{https://github.com/LopezZambrano/prueba/tree/master/planGO} y el c\'odigo de \emph{backend} se encuentra en \url{https://github.com/LopezZambrano/node-api-rest}. Utilizar esta herramienta permite tener un buen control de versiones.
+\section{C\'odigo fuente}
+\label{sec:codigo-fuente}
+
+El c\'odigo fuente de la aplicaci\'on se encuentra en repositorios de GitHub. Existen tres repositorios para este trabajo: uno para el proyecto de  \emph{frontend}, otro para el proyecto de  \emph{backend} y por \'ultimo uno para la memoria desarrollada en Latex. Utilizar esta herramienta permite tener un buen control de versiones.
+
+El proyecto \emph{frontend} se encuentra en:
+
+ \url{https://github.com/LopezZambrano/prueba/tree/master/planGO}.
+
+El proyecto \emph{backend} se encuentra en:
+
+ \url{https://github.com/LopezZambrano/node-api-rest}. 
+
+La memoria se encuentra en:
+
+ \url{https://github.com/LopezZambrano/memoria-planGO}.
+
+\subsection{M\'etrica LOC}
+\label{sec:metrica-fuente}
+
+El n\'umero de l\'ineas de c\'odigo o LOC\cite{LOC} (\emph{Lines Of Code}) es una m\'etrica est\'andar que se utiliza para tratar de determinar el tama\~no de un desarrollo inform\'atico y tambi\'en en cierta medida dan una idea del esfuerzo que se ha necesitado para crearlo.
+
+Las LOC son una medida un tanto imprecisa, porque se puede escribir c\'odigo m\'as o menos compacto seg\'un el estilo de cada uno. Adem\'as hay lenguajes con sintaxis m\'as larga que otras y por tanto que generan m\'as l\'ineas.
+
+Adem\'as de l\'ineas de c\'odigo en total es interesante medir tambi\'en algunas m\'etricas relacionadas, como las que han sido medidas en este caso: n\'umero de ficheros, espacios en blanco y comentarios.
+
+Dado que se han utilizado frameworks que generan codigo de forma autom\'atica, solo ha sido contabilizado aquel c\'odigo que ha tenido que ser desarrollado. De esta manera el an\'alisis se ajusta m\'as al esfuerzo realizado.
+
+Para realizar este an\'alisis, se ha utilizado una herramienta llamada CLOC\cite{CLOC}. Los resultados obtenidos en dicho an\'alisis han sido recogidos las tablas de las figuras \ref{f:front-media} y \ref{f:back-media}.
+
+Las conclusi\'on de este an\'alisis, viendo los resultados, es clara. Existe un mayor exfuerzo en la parte de \emph{frontend} con un total de 4.419 l\'ineas de c\'odio frente a las 559 de la parte de \emph{backend}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/front_a.png}
+  \caption{An\'alisis c\'odigo frontend}
+  \label{f:front-media}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/back_a.png}
+  \caption{An\'alisis c\'odigo backend}
+  \label{f:back-media}
+\end{figure}
+
+
 
 
 
@@ -1642,7 +1688,7 @@ Otros conocimientos adquiridos a destacar son:
 \section{Trabajos futuros}
 \label{sec:trabajos_futuros}
 
-Como cualquier aplicaci\'on, existen varias versiones de la misma e incluso cuando ya est\'a en producci\'on. Esto se debe a que hay mejores continuas y correci\'on de errores, as\'i como propuestas que realizan los propios usuaruis. En las stores de app es posible valorar cada aplicaci\'on y a\~nadir quejas y sugerencias. Esta es la mejor manera de que la aplicaci\'on evolucione. Hasta que una aplicaci\'on no esta en uso, no salen las verdaderas necesidades.
+Como cualquier aplicaci\'on, existen varias versiones de la misma e incluso cuando ya est\'a en producci\'on. Esto se debe a que hay mejores continuas y correci\'on de errores, as\'i como propuestas que realizan los propios usuarios. En las stores de app es posible valorar cada aplicaci\'on y a\~nadir quejas y sugerencias. Esta es la mejor manera de que la aplicaci\'on evolucione. Hasta que una aplicaci\'on no esta en uso, no salen las verdaderas necesidades.
 
 Como trabajo futuro ser\'ia interesante realizar las mejoras que pidan los usuarios y as\'i adaptarla a sus necesidades.
 
